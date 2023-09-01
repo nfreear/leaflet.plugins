@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nfreear/pixel-ruler.git"
+    "url": "https://github.com/nfreear/Leaflet.a11y.git"
   },
   "peerDependencies": {
     "leaflet": "^1.0.0"

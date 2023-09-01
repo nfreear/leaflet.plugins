@@ -14,42 +14,35 @@
     // attach your plugin to the global 'L' variable
     if (typeof window !== 'undefined' && window.L) {
         window.L.a11y = factory(L);
-        // factory(L);
     }
 }(function (L) {
     const MyAccessibilityPlugin = {};
 
     // implement your plugin
+    let mapElem;
 
     function initialize (MAP) {
-      const mapElem = MAP._container;
+      mapElem = MAP._container;
 
       mapElem.role = 'region';
       mapElem.ariaLabel = L._('map');
       mapElem.ariaRoleDescription = L._('map');
 
-      _localizeControls(mapElem);
+      _localizeControls();
       _localizeMarkers(mapElem);
-      _localizePopups(MAP); // Not 'MAP_EL'!
+      _localizePopups(MAP); // NOT 'mapElem'!
 
       console.debug('a11y.initialize:', mapElem, MAP);
     }
 
-    function _localizeControls (MAP_EL) {
-      const MAP_CONTROLS = MAP_EL.querySelector('.leaflet-control-container');
+    function _localizeControls () {
+      _qt('.leaflet-control-zoom-in', 'ariaLabel', 'Zoom in');
+      _qt('.leaflet-control-zoom-in', 'title', 'Zoom in');
 
-      const ZOOM_IN = MAP_CONTROLS.querySelector('.leaflet-control-zoom-in');
-      const ZOOM_OUT = MAP_CONTROLS.querySelector('.leaflet-control-zoom-out');
+      _qt('.leaflet-control-zoom-out', 'ariaLabel', 'Zoom out');
+      _qt('.leaflet-control-zoom-out', 'title', 'Zoom out');
 
-      const ATTR_LINK = MAP_CONTROLS.querySelector('.leaflet-control-attribution a[href *= "leafletjs.com"]');
-
-      ZOOM_IN.ariaLabel = L._('Zoom in');
-      ZOOM_IN.title = L._('Zoom in');
-
-      ZOOM_OUT.ariaLabel = L._('Zoom out');
-      ZOOM_OUT.title = L._('Zoom out');
-
-      ATTR_LINK.title = L._('A JavaScript library for interactive maps');
+      _qt('.leaflet-control-attribution a[href *= "leafletjs.com"]', 'title', 'A JavaScript library for interactive maps');
     }
 
     function _localizeMarkers (MAP_EL) {
@@ -70,6 +63,15 @@
 
         console.debug('a11y.popupopen:', ev);
       });
+    }
+
+    function _qt(selector, prop, str) {
+      const ELEM = mapElem.querySelector(selector);
+      console.assert(ELEM, `element.querySelector('${selector}')`);
+
+      if (ELEM) {
+        ELEM[prop] = L._(str);
+      }
     }
 
     MyAccessibilityPlugin.initialize = initialize;
