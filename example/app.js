@@ -4,18 +4,12 @@ import 'https://unpkg.com/leaflet-i18n@0.3.3/Leaflet.i18n.js';
 
 import '../Leaflet.a11y.js';
 
-import LOCALE_EN from '../locale/en-TEST.js';
-import LOCALE_FR from '../locale/fr.js';
-
 console.debug('App start:', window.L);
 
-const { L } = window;
+const { L, location } = window;
+const REGEX_LOCALE = /\?lang=(fr|en-TEST)/;
 
-L.registerLocale('en-TEST', LOCALE_EN);
-L.registerLocale('fr', LOCALE_FR);
-
-// L.setLocale('en-TEST');
-L.setLocale('fr');
+await importAndSetLocale(location, L);
 
 const MAP = L.map('map').setView([51.505, -0.09], 13);
 
@@ -36,5 +30,19 @@ const MARKER = L.marker([51.5, -0.09], {
 L.a11y.initialize(MAP);
 
 console.debug('App end:', MAP, L);
+
+async function importAndSetLocale (location, L) {
+  const MATCH = location.search.match(REGEX_LOCALE);
+  const FILE = MATCH ? MATCH[1] : null;
+
+  if (FILE) {
+    const { LOCALE } = await import(`../locale/${FILE}.js`);
+    const CODE = FILE.replace(/-TEST/, '');
+
+    L.registerLocale(CODE, LOCALE);
+    L.setLocale(CODE);
+    console.debug('Locale:', CODE, FILE, LOCALE);
+  }
+}
 
 // End.

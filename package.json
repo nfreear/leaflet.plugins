@@ -1,7 +1,7 @@
 {
   "name": "Leaflet.a11y",
   "version": "0.0.1",
-  "description": "An accessibility and localization plugin.",
+  "description": "An accessibility and localization plugin for Leaflet.js.",
   "main": "./Leaflet.a11y.js",
   "author": "Nick Freear",
   "license": "MIT",

@@ -24,6 +24,8 @@
     function initialize (MAP) {
       mapElem = MAP._container;
 
+      mapElem.lang = L.locale; // Was: L._('_locale');
+
       mapElem.role = 'region';
       mapElem.ariaLabel = L._('map');
       mapElem.ariaRoleDescription = L._('map');
@@ -42,9 +44,10 @@
       _qt('.leaflet-control-zoom-out', 'ariaLabel', 'Zoom out');
       _qt('.leaflet-control-zoom-out', 'title', 'Zoom out');
 
-      _qt('.leaflet-control-attribution a[href *= "leafletjs.com"]', 'title', 'A JavaScript library for interactive maps');
+      _qt('.leaflet-control-attribution a[href $= "leafletjs.com"]', 'title', 'A JavaScript library for interactive maps');
     }
 
+    // Only translate the default marker ALT text, for now.
     function _localizeMarkers (MAP_EL) {
       const MARKER_PANE = MAP_EL.querySelector('.leaflet-marker-pane');
 
