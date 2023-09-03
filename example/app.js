@@ -25,6 +25,8 @@ const MARKER = L.marker([51.5, -0.09], {
 .addTo(MAP)
 .bindPopup(L._('Hello! I’m a translation test.'));
 
+const MARKER_2 = L.marker([51.5055, -0.098888], {}).addTo(MAP);
+
 // Initialize the accessibility plugin - after adding the 'tileLayer' to the map.
 
 L.a11y.initialize(MAP);

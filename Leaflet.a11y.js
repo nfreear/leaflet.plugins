@@ -22,7 +22,7 @@
     let mapElem;
 
     function initialize (MAP) {
-      mapElem = MAP._container;
+      mapElem = MAP.getContainer(); // Was: MAP._container;
 
       mapElem.lang = L.locale; // Was: L._('_locale');
 
@@ -31,10 +31,10 @@
       mapElem.ariaRoleDescription = L._('map');
 
       _localizeControls();
-      _localizeMarkers(mapElem);
+      _localizeMarkers(MAP);
       _localizePopups(MAP); // NOT 'mapElem'!
 
-      console.debug('a11y.initialize:', mapElem, MAP);
+      console.debug('a11y.initialize:', mapElem, MAP.getPanes(), MAP);
     }
 
     function _localizeControls () {
@@ -48,8 +48,8 @@
     }
 
     // Only translate the default marker ALT text, for now.
-    function _localizeMarkers (MAP_EL) {
-      const MARKER_PANE = MAP_EL.querySelector('.leaflet-marker-pane');
+    function _localizeMarkers (MAP) {
+      const MARKER_PANE = MAP.getPane('markerPane'); // Was: MAP_EL.querySelector('.leaflet-marker-pane');
 
       [...MARKER_PANE.children].forEach(PIN_EL => {
         if (PIN_EL.alt === 'Marker') {
