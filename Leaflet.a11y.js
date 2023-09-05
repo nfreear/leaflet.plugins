@@ -30,6 +30,7 @@
     _localizePopups(MAP); // NOT 'mapElem'!
 
     _fixMapContainer();
+    _managePopupFocus(MAP);
 
     console.debug('a11y.initialize:', mapElem, MAP.getPanes(), MAP);
   }
@@ -76,12 +77,43 @@
     mapElem.ariaRoleDescription = L._('map');
   }
 
-  function _qt (selector, prop, str) {
+  /**
+   * Move keyboard focus when a popup is opened and closed.
+   * @see GH Issue: Leaflet/Leaflet/issues/8115 (also: #8113, #8114)
+   * @see SC 2.4.3: https://w3.org/TR/WCAG21/#focus-order
+   */
+  function _managePopupFocus (MAP) {
+    MAP.on('popupopen', (ev) => {
+      ev.popup._container.role = 'dialog'; // Not modal!
+      ev.popup._container.setAttribute('tabindex', '-1');
+      ev.popup._container.focus(); // Was: ev.popup._closeButton.focus();
+
+      const SOURCE = ev.popup._source;
+      if (SOURCE) {
+        SOURCE._icon.ariaExpanded = 'true';
+      }
+    });
+
+    MAP.on('popupclose', (ev) => {
+      // Find the marker or element that triggered the popup.
+      const SOURCE = ev.popup._source;
+      if (SOURCE) {
+        SOURCE._icon.focus();
+        SOURCE._icon.ariaExpanded = 'false';
+      }
+
+      console.debug('a11y.popupclose (F):', SOURCE, ev);
+    });
+  }
+
+  /** _qt: Find element within map container, and set a property on it, translated with '_()' (i18n plugin).
+   */
+  function _qt(selector, property, str) {
     const ELEM = mapElem.querySelector(selector);
     console.assert(ELEM, `element.querySelector('${selector}')`);
 
     if (ELEM) {
-      ELEM[prop] = L._(str);
+      ELEM[property] = L._(str);
     }
   }
 
