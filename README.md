@@ -18,6 +18,26 @@ A work-in-progress!
 
 License: [MIT][].
 
+# Usage
+
+Include or `import` core Leaflet and the plugins:
+
+```html
+<script src="path/to/leaflet.js"></script>
+<script src="path/to/Leaflet.i18n.js"></script>
+<script src="path/to/Leaflet.i18n.js"></script>
+```
+
+Then, call initialize the accessibility plugin with `L.a11y.onLoad` before calling `setView`:
+```js
+const MAP = L.map('map')
+  .whenReady(ev => L.a11y.onLoad(ev))
+  // Or: .on('load', ev => L.a11y.onLoad(ev))
+  .setView([51.505, -0.09], 13);
+
+// ...
+```
+
 [ci]: https://github.com/nfreear/Leaflet.a11y/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/Leaflet.a11y/actions/workflows/node.js.yml/badge.svg
 [Leaflet]: https://leafletjs.com/

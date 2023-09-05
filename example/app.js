@@ -1,3 +1,9 @@
+/**
+ * Import Leaflet and our plugins; dynamically import locale.
+ * Then create a map and add some pins and popups.
+ *
+ * @file Javascript module (ES6)
+ */
 
 import 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
 import 'https://unpkg.com/leaflet-i18n@0.3.3/Leaflet.i18n.js';
@@ -11,7 +17,11 @@ const REGEX_LOCALE = /\?lang=(fr|en-TEST)/;
 
 await importAndSetLocale(location, L);
 
-const MAP = L.map('map').setView([51.505, -0.09], 13);
+const MAP = L.map('map')
+  // Initialize the accessibility plugin.
+  .whenReady(ev => L.a11y.onLoad(ev))
+  // Or: .on('load', ev => L.a11y.onLoad(ev))
+  .setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
@@ -25,13 +35,14 @@ L.marker([51.5, -0.09], {
   .addTo(MAP)
   .bindPopup(L._('Hello! I’m a translation test.'));
 
-L.marker([51.5055, -0.098888], {}).addTo(MAP);
+L.marker([51.5055, -0.098888], { interactive: false }).addTo(MAP);
 
-// Initialize the accessibility plugin - after adding the 'tileLayer' to the map.
+L.popup()
+  .setLatLng([51.513, -0.09])
+  .setContent(L._('I am a standalone popup.'))
+  .openOn(MAP);
 
-L.a11y.initialize(MAP);
-
-console.debug('App end:', MAP, L);
+console.debug('App end:', L.a11y, MAP, L);
 
 async function importAndSetLocale (location, L) {
   const MATCH = location.search.match(REGEX_LOCALE);
