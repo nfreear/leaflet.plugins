@@ -18,14 +18,14 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: L._('© OpenStreetMap')
 }).addTo(MAP);
 
-const MARKER = L.marker([51.5, -0.09], {
+L.marker([51.5, -0.09], {
   alt: L._('Marker: {name}', { name: 'Sterry Street, London, SE1 4NE' }),
   title: L._('Marker: {name}', { name: 'Sterry Street, London, SE1 4NE' })
 })
-.addTo(MAP)
-.bindPopup(L._('Hello! I’m a translation test.'));
+  .addTo(MAP)
+  .bindPopup(L._('Hello! I’m a translation test.'));
 
-const MARKER_2 = L.marker([51.5055, -0.098888], {}).addTo(MAP);
+L.marker([51.5055, -0.098888], {}).addTo(MAP);
 
 // Initialize the accessibility plugin - after adding the 'tileLayer' to the map.
 
