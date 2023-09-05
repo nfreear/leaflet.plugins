@@ -13,7 +13,9 @@
     "leaflet": "^1.0.0"
   },
   "scripts": {
-    "start": "npx servor"
+    "start": "npx servor",
+    "fix": "semistandard --fix",
+    "test": "semistandard"
   },
   "keywords": [
     "Leaflet",
@@ -23,6 +25,7 @@
     "accessibility"
   ],
   "devDependencies": {
+    "semistandard": "^17.0.0",
     "servor": "^4.0.2"
   }
 }
