@@ -25,13 +25,11 @@
 
     mapElem.lang = L.locale; // Was: L._('_locale');
 
-    mapElem.role = 'region';
-    mapElem.ariaLabel = L._('map');
-    mapElem.ariaRoleDescription = L._('map');
-
     _localizeControls();
     _localizeMarkers(MAP);
     _localizePopups(MAP); // NOT 'mapElem'!
+
+    _fixMapContainer();
 
     console.debug('a11y.initialize:', mapElem, MAP.getPanes(), MAP);
   }
@@ -65,6 +63,17 @@
 
       console.debug('a11y.popupopen:', ev);
     });
+  }
+
+  /**
+   * Set a role and role on the map container.
+   * @see GH Issue: Leaflet/Leaflet/issues/7193.
+   * @see SC 4.1.2: https://w3.org/TR/WCAG21/#name-role-value
+   */
+  function _fixMapContainer () {
+    if (!mapElem.role) mapElem.role = 'region';
+    if (!mapElem.ariaLabel) mapElem.ariaLabel = L._('map');
+    mapElem.ariaRoleDescription = L._('map');
   }
 
   function _qt (selector, prop, str) {
