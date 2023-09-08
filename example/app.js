@@ -8,7 +8,7 @@
 import 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
 import 'https://unpkg.com/leaflet-i18n@0.3.3/Leaflet.i18n.js';
 
-import '../Leaflet.a11y.js';
+import './Leaflet.a11y.js';
 
 console.debug('App start:', window.L);
 
@@ -18,7 +18,7 @@ const REGEX_LOCALE = /\?lang=(fr|en-TEST)/;
 await importAndSetLocale(location, L);
 
 const MAP = L.map('map')
-  // Initialize the accessibility plugin.
+  // Initialize the accessibility plugin, before 'setView'.
   .whenReady(ev => L.a11y.onLoad(ev))
   // Or: .on('load', ev => L.a11y.onLoad(ev))
   .setView([51.505, -0.09], 13);
@@ -49,12 +49,12 @@ async function importAndSetLocale (location, L) {
   const FILE = MATCH ? MATCH[1] : null;
 
   if (FILE) {
-    const { LOCALE } = await import(`../locale/${FILE}.js`);
+    const { LOCALE } = await import(`./locale/${FILE}.js`);
     const CODE = FILE.replace(/-TEST/, '');
 
     L.registerLocale(CODE, LOCALE);
     L.setLocale(CODE);
-    console.debug('Locale:', CODE, FILE, LOCALE);
+    console.debug('Set locale:', CODE, FILE, LOCALE);
   }
 }
 

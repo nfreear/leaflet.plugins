@@ -14,9 +14,7 @@ The plugin currently does 3 things:
 2. Manages keyboard focus when popups are opened and closed (see [L-8115][]).
 3. Translates map controls (Zoom in, Zoom out, Close popup, ...) into a language that has been set with `setLocale` ([Leaflet.i18n][]). Mostly relevant for accessibility, as most text is hidden from visual users.
 
-A work-in-progress!
-
-License: [MIT][].
+More to follow!
 
 # Usage
 
@@ -29,6 +27,7 @@ Include or `import` core Leaflet and the plugins:
 ```
 
 Then, call initialize the accessibility plugin with `L.a11y.onLoad` before calling `setView`:
+
 ```js
 const MAP = L.map('map')
   .whenReady(ev => L.a11y.onLoad(ev))
@@ -38,15 +37,20 @@ const MAP = L.map('map')
 // ...
 ```
 
+---
+License: [MIT][].
+
 [ci]: https://github.com/nfreear/Leaflet.a11y/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/Leaflet.a11y/actions/workflows/node.js.yml/badge.svg
 [Leaflet]: https://leafletjs.com/
 [accessibility]: https://leafletjs.com/examples/accessibility/
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
-[MIT]: https://nfreear.mit-license.org/
+[MIT x]: https://nfreear.mit-license.org/
+[MIT]: https://github.com/nfreear/Leaflet.a11y/blob/main/LICENSE
 [bugs]: https://github.com/Leaflet/Leaflet/labels/accessibility
 [L-7193]: https://github.com/Leaflet/Leaflet/issues/7193
   "Make the leaflet-container a programmatically determinable element"
 [L-8115]: https://github.com/Leaflet/Leaflet/issues/8115
   "Focus management between markers and popups"
 [Maps WCAG eval]: https://github.com/Malvoz/web-maps-wcag-evaluation
+  "Web map tools WCAG 2.1 evaluation - A manual accessibility evaluation of popular web map tools."

@@ -1,7 +1,7 @@
 {
   "name": "Leaflet.a11y",
-  "version": "0.0.1",
-  "description": "An accessibility and localization plugin for Leaflet.js.",
+  "version": "0.1.0",
+  "description": "An accessibility and localization plugin for Leaflet.",
   "main": "./Leaflet.a11y.js",
   "author": "Nick Freear",
   "license": "MIT",
@@ -13,7 +13,8 @@
     "leaflet": "^1.0.0"
   },
   "scripts": {
-    "start": "npx servor",
+    "build": "cp Leaflet.a11y.js example && cp -r locale example ",
+    "start": "npm run build && npx servor example",
     "fix": "semistandard --fix",
     "test": "semistandard"
   },
