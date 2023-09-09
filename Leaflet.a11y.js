@@ -32,6 +32,8 @@
       }
       layer++;
     });
+
+    _fixMarkers(MAP);
   }
 
   function initialize (MAP) {
@@ -44,11 +46,16 @@
     mapElem.lang = L.locale; // Was: L._('_locale');
 
     _localizeControls();
-    _localizeMarkers(MAP);
     _localizePopups(MAP); // NOT 'mapElem'!
 
     _fixMapContainer();
     _managePopupFocus(MAP);
+
+    setTimeout(() => {
+      // After all layers created, translate.
+      _localizeMarkers(MAP);
+      // _fixMarkers(MAP);
+    }, 500);
 
     console.debug('a11y.initialize:', mapElem, [mapElem], MAP.getPanes(), MAP);
   }
@@ -76,6 +83,8 @@
         PIN_EL.title = L._('Marker');
       }
     });
+
+    console.debug('localizeMarkers:', MARKER_PANE.children);
   }
 
   function _localizePopups (MAP) {
@@ -99,6 +108,27 @@
   }
 
   /**
+   * Fix for non-interactive markers.
+   * @see GH Issue: Leaflet/Leaflet/issues/8116
+   */
+  function _fixMarkers (MAP) {
+    let layerIdx = 0;
+    MAP.on('layeradd', ev => {
+      // const isMarker = ev.layer._icon;
+      const markerEl = ev.layer._icon || null;
+      const isInteractive = (markerEl && markerEl.classList.contains('leaflet-interactive')) || false;
+
+      if (markerEl && !isInteractive) {
+        markerEl.tabIndex = -1;
+        markerEl.role = '';
+        markerEl.classList.add('x-static-marker');
+      }
+      console.debug('a11y.layeradd', layerIdx, isInteractive, markerEl, ev);
+      layerIdx++;
+    });
+  }
+
+  /**
    * Move keyboard focus when a popup is opened and closed.
    * @see GH Issue: Leaflet/Leaflet/issues/8115 (also: #8113, #8114)
    * @see SC 2.4.3: https://w3.org/TR/WCAG21/#focus-order
@@ -106,12 +136,12 @@
   function _managePopupFocus (MAP) {
     MAP.on('popupopen', (ev) => {
       ev.popup._container.role = 'dialog'; // Not modal!
-      ev.popup._container.setAttribute('tabindex', '-1');
+      ev.popup._container.tabIndex = -1;
       ev.popup._container.focus(); // Was: ev.popup._closeButton.focus();
 
       const SOURCE = ev.popup._source;
       if (SOURCE) {
-        SOURCE._icon.ariaExpanded = 'true';
+        SOURCE._icon.ariaExpanded = true;
       }
     });
 
