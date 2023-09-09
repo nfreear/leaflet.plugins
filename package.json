@@ -1,5 +1,5 @@
 {
-  "name": "Leaflet.a11y",
+  "name": "leaflet.a11y",
   "version": "0.1.0",
   "description": "An accessibility and localization plugin for Leaflet.",
   "main": "./Leaflet.a11y.js",
@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nfreear/Leaflet.a11y.git"
+    "url": "https://github.com/nfreear/leaflet.a11y.git"
   },
   "peerDependencies": {
     "leaflet": "^1.0.0"

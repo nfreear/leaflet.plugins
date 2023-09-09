@@ -16,6 +16,8 @@ The plugin currently does 3 things:
 
 More to follow!
 
+* Demo: [nfreear.github.io/leaflet.a11y][demo]
+
 # Usage
 
 Include or `import` core Leaflet and the plugins:
@@ -23,7 +25,7 @@ Include or `import` core Leaflet and the plugins:
 ```html
 <script src="path/to/leaflet.js"></script>
 <script src="path/to/Leaflet.i18n.js"></script>
-<script src="path/to/Leaflet.i18n.js"></script>
+<script src="path/to/Leaflet.a11y.js"></script>
 ```
 
 Then, call initialize the accessibility plugin with `L.a11y.onLoad` before calling `setView`:
@@ -40,13 +42,14 @@ const MAP = L.map('map')
 ---
 License: [MIT][].
 
-[ci]: https://github.com/nfreear/Leaflet.a11y/actions/workflows/node.js.yml
-[ci-img]: https://github.com/nfreear/Leaflet.a11y/actions/workflows/node.js.yml/badge.svg
+[ci]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml
+[ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
+[demo]: https://nfreear.github.io/leaflet.a11y/
 [Leaflet]: https://leafletjs.com/
 [accessibility]: https://leafletjs.com/examples/accessibility/
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
 [MIT x]: https://nfreear.mit-license.org/
-[MIT]: https://github.com/nfreear/Leaflet.a11y/blob/main/LICENSE
+[MIT]: https://github.com/nfreear/leaflet.a11y/blob/main/LICENSE
 [bugs]: https://github.com/Leaflet/Leaflet/labels/accessibility
 [L-7193]: https://github.com/Leaflet/Leaflet/issues/7193
   "Make the leaflet-container a programmatically determinable element"

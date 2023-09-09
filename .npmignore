@@ -1,8 +1,5 @@
-
+.github/*
 example/locale
 example/Leaflet.a11y.js
 _Leaflet
-
-node_modules
-# package-lock.json
 *BAK*
