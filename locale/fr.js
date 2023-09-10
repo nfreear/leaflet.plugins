@@ -4,6 +4,7 @@
  * @see https://translate.google.com/?sl=auto&tl=fr&text=A%20JavaScript%20library%20for%20interactive%20maps%0AClose%0Amap%0AMarker%0AMap%20marker%0AZoom%20in%0AZoom%20out%0AHello%20world!%0AHello!%20I%E2%80%99m%20a%20translation%20test.&op=translate
  */
 
+export const CODE = 'fr';
 export const LOCALE = {
   // Attribution - Leaflet, OpenStreetMap, ...
   'A JavaScript library for interactive maps': 'Une bibliothèque JavaScript pour cartes interactives',

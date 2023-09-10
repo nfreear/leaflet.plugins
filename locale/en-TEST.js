@@ -3,9 +3,8 @@
  * @summary Test English locale - Add [Z] to the end of each string, for demo/debugging.
  */
 
+export const CODE = 'en';
 export const LOCALE = {
-  // The actual language code.
-  // _locale: 'en',
   // Attribution - Leaflet, OpenStreetMap, ...
   'A JavaScript library for interactive maps': 'A JavaScript library for interactive maps [Z]',
   '© OpenStreetMap': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> [Z]',

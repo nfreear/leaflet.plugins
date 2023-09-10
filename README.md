@@ -8,11 +8,12 @@ Uses the [Leaflet.i18n][] internationalisation plugin.
 
 This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]. It is a means to provide interim fixes, and test potential fixes.
 
-The plugin currently does 3 things:
+The plugin currently does the following:
 
-1. Sets a `role` and `aria-label` on the Leaflet map container element (see [L-7193][]).
-2. Manages keyboard focus when popups are opened and closed (see [L-8115][]).
-3. Translates map controls (Zoom in, Zoom out, Close popup, ...) into a language that has been set with `setLocale` ([Leaflet.i18n][]). Mostly relevant for accessibility, as most text is hidden from visual users.
+1. Set a `role` and `aria-label` on the Leaflet map container element (see [L-7193][]).
+2. Manage keyboard focus when popups are opened and closed (see [L-8115][]).
+3. Fix so non-interactive markers are correctly identified ([L-8116][])
+4. Translate map controls (Zoom in, Zoom out, Close popup, ...) into a language that has been set with `setLocale` ([Leaflet.i18n][]). Mostly relevant for accessibility, as most text is hidden from visual users.
 
 More to follow!
 
@@ -28,7 +29,7 @@ Include or `import` core Leaflet and the plugins:
 <script src="path/to/Leaflet.a11y.js"></script>
 ```
 
-Then, call initialize the accessibility plugin with `L.a11y.onLoad` before calling `setView`:
+Then, initialize the accessibility plugin with `L.a11y.onLoad` before calling `setView`:
 
 ```js
 const MAP = L.map('map')
@@ -55,5 +56,7 @@ License: [MIT][].
   "Make the leaflet-container a programmatically determinable element"
 [L-8115]: https://github.com/Leaflet/Leaflet/issues/8115
   "Focus management between markers and popups"
+[L-8116]: https://github.com/Leaflet/Leaflet/issues/8116
+  "Discern interactive markers from non-interactive markers"
 [Maps WCAG eval]: https://github.com/Malvoz/web-maps-wcag-evaluation
   "Web map tools WCAG 2.1 evaluation - A manual accessibility evaluation of popular web map tools."

@@ -21,6 +21,9 @@
   let mapElem;
   let _initialized = false;
 
+  // Dummy/placeholder "translation" function.
+  L._ = L._ || ((str) => str);
+
   function onLoad (ev) {
     console.assert(ev && ev.type && ev.target && ev.target.on);
     let layer = 0;
@@ -51,12 +54,6 @@
     _fixMapContainer();
     _managePopupFocus(MAP);
 
-    setTimeout(() => {
-      // After all layers created, translate.
-      _localizeMarkers(MAP);
-      // _fixMarkers(MAP);
-    }, 500);
-
     console.debug('a11y.initialize:', mapElem, [mapElem], MAP.getPanes(), MAP);
   }
 
@@ -74,17 +71,17 @@
 
   /** Only translate the default marker ALT text, for now.
    */
-  function _localizeMarkers (MAP) {
-    const MARKER_PANE = MAP.getPane('markerPane'); // Was: MAP_EL.querySelector('.leaflet-marker-pane');
+  function _localizeMarker (PIN_EL) {
+    // const MARKER_PANE = MAP.getPane('markerPane'); // Was: MAP_EL.querySelector('.leaflet-marker-pane');
 
-    [...MARKER_PANE.children].forEach(PIN_EL => {
-      if (PIN_EL.alt === 'Marker') {
-        PIN_EL.alt = L._('Marker');
-        PIN_EL.title = L._('Marker');
-      }
-    });
+    // [...MARKER_PANE.children].forEach(PIN_EL => {
+    if (PIN_EL.alt === 'Marker') {
+      PIN_EL.alt = L._('Marker');
+      PIN_EL.title = L._('Marker');
+    }
+    // });
 
-    console.debug('localizeMarkers:', MARKER_PANE.children);
+    // console.debug('localizeMarkers:', MARKER_PANE.children);
   }
 
   function _localizePopups (MAP) {
@@ -122,6 +119,9 @@
         markerEl.tabIndex = -1;
         markerEl.role = '';
         markerEl.classList.add('x-static-marker');
+      }
+      if (markerEl) {
+        _localizeMarker(markerEl);
       }
       console.debug('a11y.layeradd', layerIdx, isInteractive, markerEl, ev);
       layerIdx++;

@@ -49,8 +49,7 @@ async function importAndSetLocale (location, L) {
   const FILE = MATCH ? MATCH[1] : null;
 
   if (FILE) {
-    const { LOCALE } = await import(`./locale/${FILE}.js`);
-    const CODE = FILE.replace(/-TEST/, '');
+    const { LOCALE, CODE } = await import(`./locale/${FILE}.js`);
 
     L.registerLocale(CODE, LOCALE);
     L.setLocale(CODE);
