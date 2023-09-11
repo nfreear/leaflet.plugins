@@ -1,4 +1,5 @@
 [![Node.js CI][ci-img]][ci]
+[![NPM][npm-img]][npm]
 
 # Leaflet.a11y
 
@@ -6,7 +7,7 @@ An accessibility and localization/translation plugin for [Leaflet][].
 
 Uses the [Leaflet.i18n][] internationalisation plugin.
 
-This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]. It is a means to provide interim fixes, and test potential fixes.
+This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]. It is a means to provide interim fixes, and potentially test fixes.
 
 The plugin currently does the following:
 
@@ -45,6 +46,8 @@ License: [MIT][].
 
 [ci]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
+[npm]: https://www.npmjs.com/package/leaflet.a11y
+[npm-img]: https://img.shields.io/npm/v/leaflet.a11y
 [demo]: https://nfreear.github.io/leaflet.a11y/
 [Leaflet]: https://leafletjs.com/
 [accessibility]: https://leafletjs.com/examples/accessibility/

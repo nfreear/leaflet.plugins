@@ -1,0 +1,38 @@
+
+body {
+  background-color: #fefefe;
+  color: #333;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  outline-offset: .15rem;
+}
+
+h1,
+p,
+nav {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 40rem;
+  padding: 0 .6rem;
+}
+
+nav ul {
+  padding: 0;
+}
+nav li {
+  display: inline-block;
+  padding: 0;
+}
+nav li::after {
+  content: '·';
+  margin: 0 .7rem;
+}
+
+#map {
+  height: 60vh;
+  min-height: 230px;
+}
