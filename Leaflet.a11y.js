@@ -46,7 +46,7 @@
 
     mapElem = MAP.getContainer(); // Was: MAP._container;
 
-    mapElem.lang = L.locale; // Was: L._('_locale');
+    mapElem.lang = L.locale || '';
 
     _localizeControls();
     _localizePopups(MAP); // NOT 'mapElem'!
@@ -70,6 +70,7 @@
   }
 
   /** Only translate the default marker ALT text, for now.
+   * @see https://github.com/Leaflet/Leaflet/blob/main/src/layer/marker/Marker.js#L49
    */
   function _localizeMarker (PIN_EL) {
     // const MARKER_PANE = MAP.getPane('markerPane'); // Was: MAP_EL.querySelector('.leaflet-marker-pane');
@@ -117,7 +118,7 @@
 
       if (markerEl && !isInteractive) {
         markerEl.tabIndex = -1;
-        markerEl.role = '';
+        markerEl.role = undefined;
         markerEl.classList.add('x-static-marker');
       }
       if (markerEl) {
