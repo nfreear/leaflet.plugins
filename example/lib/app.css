@@ -12,12 +12,17 @@ body {
 }
 
 h1,
-p,
+body > p,
+details,
 nav {
   margin-left: auto;
   margin-right: auto;
   max-width: 40rem;
   padding: 0 .6rem;
+}
+
+details {
+  line-height: 1.4;
 }
 
 nav ul {
@@ -33,6 +38,14 @@ nav li::after {
 }
 
 #map {
+  X-border: 1px solid #ddd;
+  font-size: .78rem;
   height: 60vh;
   min-height: 230px;
+}
+
+.leaflet-div-icon {
+  background: transparent;
+  border: 3px solid red;
+  border-radius: 50%;
 }
