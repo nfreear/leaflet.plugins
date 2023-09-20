@@ -60,13 +60,13 @@
   /** Translate default controls - Zoom in/out, Attribution.
    */
   function _localizeControls () {
-    _qt('.leaflet-control-zoom-in', 'ariaLabel', 'Zoom in');
-    _qt('.leaflet-control-zoom-in', 'title', 'Zoom in');
+    _qt('.leaflet-control-zoom-in', 'ariaLabel', L._('Zoom in')); // src/control/Control.Zoom.js#L30
+    _qt('.leaflet-control-zoom-in', 'title', L._('Zoom in'));
 
-    _qt('.leaflet-control-zoom-out', 'ariaLabel', 'Zoom out');
-    _qt('.leaflet-control-zoom-out', 'title', 'Zoom out');
+    _qt('.leaflet-control-zoom-out', 'ariaLabel', L._('Zoom out'));
+    _qt('.leaflet-control-zoom-out', 'title', L._('Zoom out'));
 
-    _qt('.leaflet-control-attribution a[href $= "leafletjs.com"]', 'title', 'A JavaScript library for interactive maps');
+    _qt('.leaflet-control-attribution a[href $= "leafletjs.com"]', 'title', L._('A JavaScript library for interactive maps'));
   }
 
   /** Only translate the default marker ALT text, for now.
@@ -87,7 +87,7 @@
 
   function _localizePopups (MAP) {
     MAP.on('popupopen', ev => {
-      ev.popup._closeButton.title = L._('Close popup');
+      ev.popup._closeButton.title = L._('Close popup'); // src/layer/Popup.js#L102
       ev.popup._closeButton.ariaLabel = L._('Close popup');
 
       console.debug('a11y.popupopen:', ev);
@@ -165,7 +165,7 @@
     console.assert(ELEM, `element.querySelector('${selector}')`);
 
     if (ELEM) {
-      ELEM[property] = L._(str);
+      ELEM[property] = str;
     }
   }
 
