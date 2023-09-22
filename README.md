@@ -74,6 +74,6 @@ License: [MIT][].
 [L-9092]: https://github.com/Leaflet/Leaflet/issues/9092
   "feat: Add placeholder function for translation/localization/i18n to Leaflet"
 [L-9087]: https://github.com/Leaflet/Leaflet/pull/9087
-  "Add the "Leaflet.a11y" plugin to plugin list"
+  "Add the 'Leaflet.a11y' to plugin list"
 [Maps WCAG eval]: https://github.com/Malvoz/web-maps-wcag-evaluation
   "Web map tools WCAG 2.1 evaluation - A manual accessibility evaluation of popular web map tools."
