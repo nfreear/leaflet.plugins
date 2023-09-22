@@ -1,6 +1,6 @@
 {
   "name": "leaflet.a11y",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "An accessibility and localization plugin for Leaflet.",
   "main": "./Leaflet.a11y.js",
   "author": "Nick Freear",
@@ -19,9 +19,13 @@
     "test": "semistandard"
   },
   "keywords": [
-    "Leaflet",
+    "leaflet",
     "map",
     "i18n",
+    "internationalization",
+    "internationalisation",
+    "localization",
+    "translation",
     "a11y",
     "accessibility"
   ],

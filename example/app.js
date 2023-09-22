@@ -37,12 +37,14 @@ L.marker([51.5, -0.09], {
 
 L.marker([51.5055, -0.098888], { interactive: false }).addTo(MAP);
 
+L.marker([51.5044, -0.08555], { icon: L.divIcon(), title: 'PIN' }).addTo(MAP);
+
 L.popup()
   .setLatLng([51.513, -0.09])
   .setContent(L._('I am a standalone popup.'))
   .openOn(MAP);
 
-console.debug('App end:', L.a11y, MAP, L);
+console.debug('App end:', L.version, L.a11y, MAP, L);
 
 async function importAndSetLocale (location, L) {
   const MATCH = location.search.match(REGEX_LOCALE);
