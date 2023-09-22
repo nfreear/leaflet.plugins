@@ -138,11 +138,12 @@
     MAP.on('popupopen', (ev) => {
       ev.popup._container.role = 'dialog'; // Not modal!
       ev.popup._container.tabIndex = -1;
-      ev.popup._container.focus(); // Was: ev.popup._closeButton.focus();
 
       const SOURCE = ev.popup._source;
       if (SOURCE) {
         SOURCE._icon.ariaExpanded = true;
+        // Only set focus when opened by a trigger element.
+        ev.popup._container.focus(); // Was: ev.popup._closeButton.focus();
       }
     });
 
