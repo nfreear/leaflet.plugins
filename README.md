@@ -5,13 +5,17 @@
 
 An accessibility and localization/translation plugin for [Leaflet][].
 
-Uses the [Leaflet.i18n][] internationalisation plugin.
-
 ## Aim
 
-This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]. It is a means to provide interim fixes, and potentially test fixes.
+This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]. It is a means to provide interim fixes, and potentially to test fixes.
 
-The aim of this plugin is for accessibility fixes and enhancements to be made to core Leaflet, so that the plugin becomes obsolete.
+The aim for this plugin is for it to become obsolete and to retire it, because sufficient accessibility fixes and enhancements have been made to core Leaflet.
+
+## Leaflet.i18n plugin optional
+
+If available, `Leaflet.a11y` uses the [Leaflet.i18n][] internationalisation plugin.
+
+If the `Leaflet.i18n` plugin is not available, a shim is provided for the `L._()` translation function.
 
 ## What it does
 
@@ -26,7 +30,7 @@ More to follow!
 
 * Demo: [nfreear.github.io/leaflet.a11y][demo]
 
-# Usage
+## Usage
 
 Include or `import` core Leaflet and the plugins:
 
@@ -69,5 +73,7 @@ License: [MIT][].
   "Discern interactive markers from non-interactive markers"
 [L-9092]: https://github.com/Leaflet/Leaflet/issues/9092
   "feat: Add placeholder function for translation/localization/i18n to Leaflet"
+[L-9087]: https://github.com/Leaflet/Leaflet/pull/9087
+  "Add the "Leaflet.a11y" plugin to plugin list"
 [Maps WCAG eval]: https://github.com/Malvoz/web-maps-wcag-evaluation
   "Web map tools WCAG 2.1 evaluation - A manual accessibility evaluation of popular web map tools."
