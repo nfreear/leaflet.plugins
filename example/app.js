@@ -9,17 +9,14 @@ import L from 'leaflet.esm.shim';
 import 'Leaflet.i18n';
 import 'Leaflet.a11y';
 // import accessibilityPlugin from 'Leaflet.a11y.esm';
-
-// import myPlugin from 'my-plugin';
+import Locale from 'Leaflet.locale';
 
 console.debug('App start:', window.L);
 
-const { location } = window;
-const REGEX_LOCALE = /\?lang=(fr|en-TEST)/;
-
 // accessibilityPlugin(L);
 
-await importAndSetLocale(location, L);
+const LOCALE = new Locale(L, window.location);
+await LOCALE.load(LOCALE.fromUrl());
 
 const MAP = L.map('map', {
   a11yPlugin: true
@@ -47,19 +44,6 @@ L.popup()
   .setContent(L._('I am a standalone popup.'))
   .openOn(MAP);
 
-console.debug('App end:', L.version, L.A11yPlugin, MAP, L);
-
-async function importAndSetLocale (location, L) {
-  const MATCH = location.search.match(REGEX_LOCALE);
-  const FILE = MATCH ? MATCH[1] : null;
-
-  if (FILE) {
-    const { LOCALE, CODE } = await import(`locale.${FILE}`);
-
-    L.registerLocale(CODE, LOCALE);
-    L.setLocale(CODE);
-    console.debug('Set locale:', CODE, FILE, LOCALE);
-  }
-}
+console.debug('App end:', L.version, MAP, L);
 
 // End.
