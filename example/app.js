@@ -5,22 +5,25 @@
  * @file Javascript module (ES6)
  */
 
-import 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
-import 'https://unpkg.com/leaflet-i18n@0.3.3/Leaflet.i18n.js';
+import L from 'leaflet.esm.shim';
+import 'Leaflet.i18n';
+import 'Leaflet.a11y';
+// import accessibilityPlugin from 'Leaflet.a11y.esm';
 
-import './Leaflet.a11y.js';
+// import myPlugin from 'my-plugin';
 
 console.debug('App start:', window.L);
 
-const { L, location } = window;
+const { location } = window;
 const REGEX_LOCALE = /\?lang=(fr|en-TEST)/;
+
+// accessibilityPlugin(L);
 
 await importAndSetLocale(location, L);
 
-const MAP = L.map('map')
-  // Initialize the accessibility plugin, before 'setView'.
-  .whenReady(ev => L.a11y.onLoad(ev))
-  // Or: .on('load', ev => L.a11y.onLoad(ev))
+const MAP = L.map('map', {
+  a11yPlugin: true
+})
   .setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -44,14 +47,14 @@ L.popup()
   .setContent(L._('I am a standalone popup.'))
   .openOn(MAP);
 
-console.debug('App end:', L.version, L.a11y, MAP, L);
+console.debug('App end:', L.version, L.A11yPlugin, MAP, L);
 
 async function importAndSetLocale (location, L) {
   const MATCH = location.search.match(REGEX_LOCALE);
   const FILE = MATCH ? MATCH[1] : null;
 
   if (FILE) {
-    const { LOCALE, CODE } = await import(`./locale/${FILE}.js`);
+    const { LOCALE, CODE } = await import(`locale.${FILE}`);
 
     L.registerLocale(CODE, LOCALE);
     L.setLocale(CODE);
