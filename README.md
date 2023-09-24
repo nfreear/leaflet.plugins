@@ -40,13 +40,13 @@ Include or `import` core Leaflet and the plugins:
 <script src="path/to/Leaflet.a11y.js"></script>
 ```
 
-Then, initialize the accessibility plugin with `L.a11y.onLoad` before calling `setView`:
+Then, set the `a11yPlugin` option when creating a map:
 
 ```js
-const MAP = L.map('map')
-  .whenReady(ev => L.a11y.onLoad(ev))
-  // Or: .on('load', ev => L.a11y.onLoad(ev))
-  .setView([51.505, -0.09], 13);
+const MAP = L.map('map', {
+  a11yPlugin: true
+  // ...
+}).setView([51.505, -0.09], 13);
 
 // ...
 ```

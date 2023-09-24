@@ -1,175 +1,188 @@
-// Following https://github.com/Leaflet/Leaflet/blob/master/PLUGIN-GUIDE.md
+/**
+ * Leaflet Accessibility Plugin.
+ */
 
-(function (factory, window) {
-  // define an AMD module that relies on 'leaflet'
-  if (typeof define === 'function' && define.amd) { // eslint-disable-line no-undef
-    define(['leaflet'], factory); // eslint-disable-line no-undef
-
-    // define a Common JS module that relies on 'leaflet'
-  } else if (typeof exports === 'object') {
-    module.exports = factory(require('leaflet'));
-  }
-
-  // attach your plugin to the global 'L' variable
-  if (typeof window !== 'undefined' && window.L) {
-    window.L.a11y = factory(L); // eslint-disable-line no-undef
-  }
-}(function (L) {
-  const MyAccessibilityPlugin = { onLoad, initialize, _qt };
-
-  // implement your plugin
-  let mapElem;
-  let _initialized = false;
-
-  // Dummy/placeholder "translation" function.
+export default function accessibilityPlugin (L) {
+  /**
+   * L._: Translation function, or a dummy/placeholder.
+   */
   L._ = L._ || ((str) => str);
 
-  function onLoad (ev) {
-    console.assert(ev && ev.type && ev.target && ev.target.on);
-    let layer = 0;
-    const MAP = ev.target;
-    MAP.on('layeradd', ev => {
-      // Initialize after the tile layer is added.
-      if (layer === 1) {
-        initialize(MAP);
-      }
-      layer++;
-    });
-
-    _fixMarkers(MAP);
-  }
-
-  function initialize (MAP) {
-    console.assert(MAP && MAP._leaflet_id && MAP.getContainer);
-    if (_initialized) return;
-    _initialized = true;
-
-    mapElem = MAP.getContainer(); // Was: MAP._container;
-
-    mapElem.lang = L.locale || '';
-
-    _localizeControls();
-    _localizePopups(MAP); // NOT 'mapElem'!
-
-    _fixMapContainer();
-    _managePopupFocus(MAP);
-
-    console.debug('a11y.initialize:', mapElem, [mapElem], MAP.getPanes(), MAP);
-  }
-
-  /** Translate default controls - Zoom in/out, Attribution.
-   */
-  function _localizeControls () {
-    _qt('.leaflet-control-zoom-in', 'ariaLabel', L._('Zoom in')); // src/control/Control.Zoom.js#L30
-    _qt('.leaflet-control-zoom-in', 'title', L._('Zoom in'));
-
-    _qt('.leaflet-control-zoom-out', 'ariaLabel', L._('Zoom out'));
-    _qt('.leaflet-control-zoom-out', 'title', L._('Zoom out'));
-
-    _qt('.leaflet-control-attribution a[href $= "leafletjs.com"]', 'title', L._('A JavaScript library for interactive maps'));
-  }
-
-  /** Only translate the default marker ALT text, for now.
-   * @see https://github.com/Leaflet/Leaflet/blob/main/src/layer/marker/Marker.js#L49
-   */
-  function _localizeMarker (PIN_EL) {
-    // const MARKER_PANE = MAP.getPane('markerPane'); // Was: MAP_EL.querySelector('.leaflet-marker-pane');
-
-    // [...MARKER_PANE.children].forEach(PIN_EL => {
-    if (PIN_EL.alt === 'Marker') {
-      PIN_EL.alt = L._('Marker');
-      PIN_EL.title = L._('Marker');
+  class AccessibilityPlugin {
+    constructor (MAP) {
+      console.assert(MAP && MAP._leaflet_id && MAP.getContainer && MAP.on);
+      // this._leaflet = L;
+      this._map = MAP;
+      this._initialized = false;
     }
-    // });
 
-    // console.debug('localizeMarkers:', MARKER_PANE.children);
-  }
+    // get L () { return this._leaflet; }
+    get map () { return this._map; }
+    get mapElem () { return this._map.getContainer(); }
 
-  function _localizePopups (MAP) {
-    MAP.on('popupopen', ev => {
-      ev.popup._closeButton.title = L._('Close popup'); // src/layer/Popup.js#L102
-      ev.popup._closeButton.ariaLabel = L._('Close popup');
+    /** Load: was "onLoad(event)"
+     */
+    load () {
+      // console.assert(ev && ev.type && ev.target && ev.target.on);
+      let layer = 0;
+      // const MAP = this._map = ev.target;
+      this.map.on('layeradd', (ev) => {
+        // Initialize after the tile layer is added.
+        if (layer === 1) {
+          this.initialize();
+        }
+        layer++;
+      });
 
-      console.debug('a11y.popupopen:', ev);
-    });
-  }
+      this._fixMarkers();
+    }
 
-  /**
-   * Set a role and role on the map container.
-   * @see GH Issue: Leaflet/Leaflet/issues/7193.
-   * @see SC 4.1.2: https://w3.org/TR/WCAG21/#name-role-value
-   */
-  function _fixMapContainer () {
-    if (!mapElem.role) mapElem.role = 'region';
-    if (!mapElem.ariaLabel) mapElem.ariaLabel = L._('map');
-    mapElem.ariaRoleDescription = L._('map');
-  }
+    initialize () {
+      // console.assert(MAP && MAP._leaflet_id && MAP.getContainer);
+      if (this._initialized) return;
+      this._initialized = true;
 
-  /**
-   * Fix for non-interactive markers.
-   * @see GH Issue: Leaflet/Leaflet/issues/8116
-   */
-  function _fixMarkers (MAP) {
-    let layerIdx = 0;
-    MAP.on('layeradd', ev => {
+      this.mapElem.lang = L.locale || '';
+
+      this._localizeControls();
+      this._localizePopups(); // NOT 'mapElem'!
+
+      this._fixMapContainer();
+      this._managePopupFocus();
+
+      console.debug('a11y.initialize:', this.mapElem, this.map);
+    }
+
+    /** Translate default controls - Zoom in/out, Attribution.
+     */
+    _localizeControls () {
+      this._qt('.leaflet-control-zoom-in', 'ariaLabel', L._('Zoom in')); // src/control/Control.Zoom.js#L30
+      this._qt('.leaflet-control-zoom-in', 'title', L._('Zoom in'));
+
+      this._qt('.leaflet-control-zoom-out', 'ariaLabel', L._('Zoom out'));
+      this._qt('.leaflet-control-zoom-out', 'title', L._('Zoom out'));
+
+      this._qt('.leaflet-control-attribution a[href $= "leafletjs.com"]', 'title', L._('A JavaScript library for interactive maps'));
+    }
+
+    /** Only translate the default marker ALT text, for now.
+     * @see https://github.com/Leaflet/Leaflet/blob/main/src/layer/marker/Marker.js#L49
+     */
+    _localizeMarker (PIN_EL) {
+      // const MARKER_PANE = MAP.getPane('markerPane'); // Was: MAP_EL.querySelector('.leaflet-marker-pane');
+
+      // [...MARKER_PANE.children].forEach(PIN_EL => {
+      if (PIN_EL.alt === 'Marker') {
+        PIN_EL.alt = L._('Marker');
+        PIN_EL.title = L._('Marker');
+      }
+      // });
+
+      // console.debug('localizeMarkers:', MARKER_PANE.children);
+    }
+
+    _localizePopups () {
+      this.map.on('popupopen', ev => {
+        ev.popup._closeButton.title = L._('Close popup'); // src/layer/Popup.js#L102
+        ev.popup._closeButton.ariaLabel = L._('Close popup');
+
+        console.debug('a11y.popupopen:', ev);
+      });
+    }
+
+    /**
+     * Set a role and role on the map container.
+     * @see GH Issue: Leaflet/Leaflet/issues/7193.
+     * @see SC 4.1.2: https://w3.org/TR/WCAG21/#name-role-value
+     */
+    _fixMapContainer () {
+      if (!this.mapElem.role) this.mapElem.role = 'region';
+      if (!this.mapElem.ariaLabel) this.mapElem.ariaLabel = L._('map');
+      this.mapElem.ariaRoleDescription = L._('map');
+    }
+
+    /**
+     * Fix for non-interactive markers.
+     * @see GH Issue: Leaflet/Leaflet/issues/8116
+     */
+    _fixMarkers (MAP) {
+      let layerIdx = 0;
+      this.map.on('layeradd', ev => {
       // const isMarker = ev.layer._icon;
-      const markerEl = ev.layer._icon || null;
-      const isInteractive = (markerEl && markerEl.classList.contains('leaflet-interactive')) || false;
+        const markerEl = ev.layer._icon || null;
+        const isInteractive = (markerEl && markerEl.classList.contains('leaflet-interactive')) || false;
 
-      if (markerEl && !isInteractive) {
-        markerEl.tabIndex = -1;
-        markerEl.role = undefined;
-        markerEl.classList.add('x-static-marker');
+        if (markerEl && !isInteractive) {
+          markerEl.tabIndex = -1;
+          markerEl.role = undefined;
+          markerEl.classList.add('x-static-marker');
+        }
+        if (markerEl) {
+          this._localizeMarker(markerEl);
+        }
+        console.debug('a11y.layeradd', layerIdx, isInteractive, markerEl, ev);
+        layerIdx++;
+      });
+    }
+
+    /**
+     * Move keyboard focus when a popup is opened and closed.
+     * @see GH Issue: Leaflet/Leaflet/issues/8115 (also: #8113, #8114)
+     * @see SC 2.4.3: https://w3.org/TR/WCAG21/#focus-order
+     */
+    _managePopupFocus (MAP) {
+      this.map.on('popupopen', (ev) => {
+        ev.popup._container.role = 'dialog'; // Not modal!
+        ev.popup._container.tabIndex = -1;
+
+        const SOURCE = ev.popup._source;
+        if (SOURCE) {
+          SOURCE._icon.ariaExpanded = true;
+          // Only set focus when opened by a trigger element.
+          ev.popup._container.focus(); // Was: ev.popup._closeButton.focus();
+        }
+      });
+
+      this.map.on('popupclose', (ev) => {
+      // Find the marker or element that triggered the popup.
+        const SOURCE = ev.popup._source;
+        if (SOURCE) {
+          SOURCE._icon.focus();
+          SOURCE._icon.ariaExpanded = 'false';
+        }
+
+        console.debug('a11y.popupclose (F):', SOURCE, ev);
+      });
+    }
+
+    /** _qt: Find element within map container, and set a property on it, translated with '_()' (i18n plugin).
+    */
+    _qt (selector, property, str) {
+      const ELEM = this.mapElem.querySelector(selector);
+      console.assert(ELEM, `element.querySelector('${selector}')`);
+
+      if (ELEM) {
+        ELEM[property] = str;
       }
-      if (markerEl) {
-        _localizeMarker(markerEl);
-      }
-      console.debug('a11y.layeradd', layerIdx, isInteractive, markerEl, ev);
-      layerIdx++;
-    });
-  }
+    }
+  } // End: class.
 
   /**
-   * Move keyboard focus when a popup is opened and closed.
-   * @see GH Issue: Leaflet/Leaflet/issues/8115 (also: #8113, #8114)
-   * @see SC 2.4.3: https://w3.org/TR/WCAG21/#focus-order
+   * L.Map.addInitHook
+   * Param needs to be a "function" (not an arrow function), so that "this" is correct!
    */
-  function _managePopupFocus (MAP) {
-    MAP.on('popupopen', (ev) => {
-      ev.popup._container.role = 'dialog'; // Not modal!
-      ev.popup._container.tabIndex = -1;
+  L.Map.addInitHook(function () {
+    const MAP = this;
+    console.debug('L.Map.addInitHook:', MAP);
 
-      const SOURCE = ev.popup._source;
-      if (SOURCE) {
-        SOURCE._icon.ariaExpanded = true;
-        // Only set focus when opened by a trigger element.
-        ev.popup._container.focus(); // Was: ev.popup._closeButton.focus();
-      }
-    });
+    if (MAP.options.accessibilityPlugin || MAP.options.a11yPlugin) {
+      MAP.a11y = new AccessibilityPlugin(this);
 
-    MAP.on('popupclose', (ev) => {
-      // Find the marker or element that triggered the popup.
-      const SOURCE = ev.popup._source;
-      if (SOURCE) {
-        SOURCE._icon.focus();
-        SOURCE._icon.ariaExpanded = 'false';
-      }
-
-      console.debug('a11y.popupclose (F):', SOURCE, ev);
-    });
-  }
-
-  /** _qt: Find element within map container, and set a property on it, translated with '_()' (i18n plugin).
-   */
-  function _qt (selector, property, str) {
-    const ELEM = mapElem.querySelector(selector);
-    console.assert(ELEM, `element.querySelector('${selector}')`);
-
-    if (ELEM) {
-      ELEM[property] = str;
+      MAP.a11y.load();
     }
-  }
+  });
 
-  // return your plugin when you are done
-  return MyAccessibilityPlugin;
-}, window));
+  L.A11yPlugin = AccessibilityPlugin;
+
+  return AccessibilityPlugin;
+} // End: function.
