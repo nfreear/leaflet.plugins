@@ -5,6 +5,9 @@
 
 An accessibility and localization/translation plugin for [Leaflet][].
 
+* See: [Changelog][]
+* Demo: [nfreear.github.io/leaflet.a11y][demo]
+
 ## Aim
 
 This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]. It is a means to provide interim fixes, and potentially to test fixes.
@@ -32,8 +35,6 @@ The plugin currently does the following:
 
 More to follow!
 
-* Demo: [nfreear.github.io/leaflet.a11y][demo]
-
 ## Usage
 
 Include or `import` core Leaflet and the plugins:
@@ -47,7 +48,7 @@ Include or `import` core Leaflet and the plugins:
 Then, set the `a11yPlugin` option when creating a map:
 
 ```js
-const MAP = L.map('map', {
+var map = L.map('map', {
   a11yPlugin: true
   // ...
 }).setView([51.505, -0.09], 13);
@@ -58,6 +59,7 @@ const MAP = L.map('map', {
 ---
 License: [MIT][].
 
+[changelog]: https://github.com/nfreear/leaflet.a11y/blob/main/CHANGELOG.md
 [ci]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
 [npm]: https://www.npmjs.com/package/leaflet.a11y
