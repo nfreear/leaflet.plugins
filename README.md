@@ -11,6 +11,10 @@ This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]
 
 The aim for this plugin is for it to become obsolete and to retire it, because sufficient accessibility fixes and enhancements have been made to core Leaflet.
 
+## What is "A11y"?
+
+"A11y" is a numeronym – an abbreviation for accessibility. It is often pronounced "alley" (see [#10][]).
+
 ## Leaflet.i18n plugin optional
 
 If available, `Leaflet.a11y` uses the [Leaflet.i18n][] internationalisation plugin.
@@ -64,6 +68,7 @@ License: [MIT][].
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
 [MIT x]: https://nfreear.mit-license.org/
 [MIT]: https://github.com/nfreear/leaflet.a11y/blob/main/LICENSE
+[#10]: https://github.com/nfreear/leaflet.a11y/issues/10
 [bugs]: https://github.com/Leaflet/Leaflet/labels/accessibility
 [L-7193]: https://github.com/Leaflet/Leaflet/issues/7193
   "Make the leaflet-container a programmatically determinable element"

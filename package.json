@@ -1,11 +1,11 @@
 {
   "name": "leaflet.a11y",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "An accessibility and localization plugin for Leaflet.",
   "main": "./Leaflet.a11y.js",
   "module": "./src/AccessibilityPlugin.mjs",
-  "author": "Nick Freear",
   "license": "MIT",
+  "author": "Nick Freear",
   "repository": {
     "type": "git",
     "url": "https://github.com/nfreear/leaflet.a11y.git"
@@ -33,12 +33,6 @@
     "a11y",
     "accessibility"
   ],
-  "semistandard": {
-    "X__include": [
-      "example",
-      "src"
-    ]
-  },
   "devDependencies": {
     "semistandard": "^17.0.0",
     "servor": "^4.0.2"
