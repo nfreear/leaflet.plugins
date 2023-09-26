@@ -2,7 +2,9 @@
  * Leaflet Accessibility Plugin.
  */
 
-export default function accessibilityPlugin (L) {
+export default function createPlugin (L) {
+  console.assert(L && L.Class && L.Map && L.LatLng && L.Util, 'Leaflet');
+
   /**
    * L._: Translation function, or a dummy/placeholder.
    */
@@ -10,22 +12,19 @@ export default function accessibilityPlugin (L) {
 
   class AccessibilityPlugin {
     constructor (MAP) {
-      console.assert(MAP && MAP._leaflet_id && MAP.getContainer && MAP.on);
-      // this._leaflet = L;
+      console.assert(MAP && MAP._leaflet_id && MAP.getContainer && MAP.on, 'map');
       this._map = MAP;
       this._initialized = false;
     }
 
-    // get L () { return this._leaflet; }
+    get locale () { return L.locale || ''; }
     get map () { return this._map; }
     get mapElem () { return this._map.getContainer(); }
 
     /** Load: was "onLoad(event)"
      */
     load () {
-      // console.assert(ev && ev.type && ev.target && ev.target.on);
       let layer = 0;
-      // const MAP = this._map = ev.target;
       this.map.on('layeradd', (ev) => {
         // Initialize after the tile layer is added.
         if (layer === 1) {
@@ -38,14 +37,13 @@ export default function accessibilityPlugin (L) {
     }
 
     initialize () {
-      // console.assert(MAP && MAP._leaflet_id && MAP.getContainer);
       if (this._initialized) return;
       this._initialized = true;
 
-      this.mapElem.lang = L.locale || '';
+      this.mapElem.lang = this.locale;
 
       this._localizeControls();
-      this._localizePopups(); // NOT 'mapElem'!
+      this._localizePopups();
 
       this._fixMapContainer();
       this._managePopupFocus();
@@ -77,12 +75,10 @@ export default function accessibilityPlugin (L) {
         PIN_EL.title = L._('Marker');
       }
       // });
-
-      // console.debug('localizeMarkers:', MARKER_PANE.children);
     }
 
     _localizePopups () {
-      this.map.on('popupopen', ev => {
+      this.map.on('popupopen', (ev) => {
         ev.popup._closeButton.title = L._('Close popup'); // src/layer/Popup.js#L102
         ev.popup._closeButton.ariaLabel = L._('Close popup');
 
@@ -107,8 +103,7 @@ export default function accessibilityPlugin (L) {
      */
     _fixMarkers (MAP) {
       let layerIdx = 0;
-      this.map.on('layeradd', ev => {
-      // const isMarker = ev.layer._icon;
+      this.map.on('layeradd', (ev) => {
         const markerEl = ev.layer._icon || null;
         const isInteractive = (markerEl && markerEl.classList.contains('leaflet-interactive')) || false;
 
@@ -144,7 +139,7 @@ export default function accessibilityPlugin (L) {
       });
 
       this.map.on('popupclose', (ev) => {
-      // Find the marker or element that triggered the popup.
+        // Find the marker or element that triggered the popup.
         const SOURCE = ev.popup._source;
         if (SOURCE) {
           SOURCE._icon.focus();
@@ -159,7 +154,7 @@ export default function accessibilityPlugin (L) {
     */
     _qt (selector, property, str) {
       const ELEM = this.mapElem.querySelector(selector);
-      console.assert(ELEM, `element.querySelector('${selector}')`);
+      console.assert(ELEM, `ELEM.querySelector(${selector})`);
 
       if (ELEM) {
         ELEM[property] = str;

@@ -4,7 +4,7 @@
 
 export default class Locale {
   constructor (L, location) {
-    console.assert(L && L.registerLocale && L.setLocale, 'L.i18n plugin');
+    console.assert(L && L.registerLocale && L.setLocale, "'L.i18n' plugin");
     this._L = L;
     this._location = location;
 
