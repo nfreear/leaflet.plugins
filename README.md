@@ -12,7 +12,7 @@ An accessibility and localization/translation plugin for [Leaflet][].
 
 This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]. It is a means to provide interim fixes, and potentially to test fixes.
 
-The aim for this plugin is for it to become obsolete and to retire it, because sufficient accessibility fixes and enhancements have been made to core Leaflet.
+The aim for this plugin is for it to become obsolete and to retire it, because sufficient accessibility fixes and enhancements have been made to core Leaflet. For more see [#14][].
 
 ## What is "A11y"?
 
@@ -71,6 +71,9 @@ License: [MIT][].
 [MIT x]: https://nfreear.mit-license.org/
 [MIT]: https://github.com/nfreear/leaflet.a11y/blob/main/LICENSE
 [#10]: https://github.com/nfreear/leaflet.a11y/issues/10
+  "What is “a11y”? #10"
+[#14]: https://github.com/nfreear/leaflet.a11y/issues/14
+  "“I want to retire” #14"
 [bugs]: https://github.com/Leaflet/Leaflet/labels/accessibility
 [L-7193]: https://github.com/Leaflet/Leaflet/issues/7193
   "Make the leaflet-container a programmatically determinable element"

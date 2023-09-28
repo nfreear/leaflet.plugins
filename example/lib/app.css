@@ -18,9 +18,10 @@ nav {
   margin-left: auto;
   margin-right: auto;
   max-width: 40rem;
-  padding: 0 .6rem;
+  padding: 0 .5rem;
 }
 
+nav,
 details {
   line-height: 1.4;
 }
@@ -34,13 +35,13 @@ nav li {
 }
 nav li::after {
   content: '·';
-  margin: 0 .7rem;
+  margin: 0 .4rem;
 }
 
 #map {
   X-border: 1px solid #ddd;
   font-size: .78rem;
-  height: 60vh;
+  height: 64vh;
   min-height: 230px;
 }
 
