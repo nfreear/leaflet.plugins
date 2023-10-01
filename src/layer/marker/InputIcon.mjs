@@ -23,6 +23,14 @@ export default function createIcon (L) {
       el.type = 'image';
       el.src = src;
       return el;
+    },
+
+    createShadow (oldIcon) {
+      const IMG = this._createIcon('shadow', oldIcon);
+      IMG.tabIndex = -1;
+      IMG.ariaHidden = true;
+      IMG.alt = '';
+      return IMG;
     }
   });
 

@@ -1,0 +1,46 @@
+
+.leaflet-container {
+  font-size: .78rem;
+  min-height: 180px;
+}
+
+.leaflet-container * {
+  outline-offset: .3rem;
+  outline-width: thick;
+}
+
+.leaflet-marker-icon {
+  border-radius: 20%;
+}
+
+.leaflet-btn-icon {
+  background-color: transparent;
+  background-image: url(https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png);
+  background-repeat: no-repeat;
+  border: none;
+  X-box-shadow: 0 0 2px 2px #029;
+  padding: 0;
+  height: 41px !important;
+  width: 25px !important;
+}
+
+.leaflet-fa-icon {
+  background: transparent;
+  border: none;
+  color: var(--l-fa-color, teal);
+  cursor: pointer;
+  font-size: var(--l-fa-size, 1.2rem);
+  padding: 0;
+  height: 1.6rem !important;
+  width: 1.6rem !important;
+  position: relative;
+}
+
+.leaflet-fa-icon:focus,
+.leaflet-fa-icon:hover {
+  left: 1px;
+  text-shadow: 1px 1px 3px var(--l-fa-color, teal);
+  transition: all 300ms;
+}
+
+/* End. */

@@ -4,6 +4,7 @@
   "description": "An accessibility and localization plugin for Leaflet.",
   "main": "./Leaflet.a11y.js",
   "module": "./src/AccessibilityPlugin.mjs",
+  "style": "./Leaflet.a11y.css",
   "license": "MIT",
   "author": "Nick Freear",
   "repository": {
@@ -16,7 +17,7 @@
   "scripts": {
     "build": "npm run build:plugin && npm run copy",
     "build:plugin": "node src/build.mjs",
-    "copy": "cp Leaflet.a11y.js example/lib && cp -r src/* example/lib && cp -r locale example",
+    "copy": "cp Leaflet.a11y.* example/lib && cp -r src/* example/lib && cp -r locale example",
     "start": "npm run build && npx servor example",
     "start:debug": "npx servor",
     "fix": "semistandard --fix",

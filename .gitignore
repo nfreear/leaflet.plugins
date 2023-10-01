@@ -1,7 +1,9 @@
 
 Leaflet.a11y.js
 example/lib/*.mjs
+example/lib/Leaflet.a11y.css
 example/lib/leaflet.esm.shim.js
+example/lib/layer
 example/locale
 _Leaflet
 
