@@ -1,8 +1,8 @@
 /**
- * Leaflet Accessibility Plugin.
+ * Leaflet Accessibility Plugin (A).
  */
 
-export default function createPlugin (L) {
+export default function createPlugin (L, addToL = false) {
   console.assert(L && L.Class && L.Map && L.LatLng && L.Util, 'Leaflet');
 
   /**
@@ -171,13 +171,15 @@ export default function createPlugin (L) {
     console.debug('L.Map.addInitHook:', MAP);
 
     if (MAP.options.accessibilityPlugin || MAP.options.a11yPlugin) {
-      MAP.a11y = new AccessibilityPlugin(this);
+      MAP.a11y = new AccessibilityPlugin(MAP);
 
       MAP.a11y.load();
     }
   });
 
-  L.A11yPlugin = AccessibilityPlugin;
+  if (addToL) {
+    L.A11yPlugin = AccessibilityPlugin;
+  }
 
   return AccessibilityPlugin;
 } // End: function.

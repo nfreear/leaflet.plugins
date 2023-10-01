@@ -7,13 +7,17 @@
 
 import L from 'leaflet.esm.shim';
 import 'Leaflet.i18n';
-import 'Leaflet.a11y';
-// import accessibilityPlugin from 'Leaflet.a11y.esm';
+// import 'Leaflet.a11y';
+import accessibilityPlugin from 'Leaflet.a11y.esm';
 import Locale from 'Leaflet.locale';
+
+// import createMarker from './lib/InputMarker.mjs';
+// import createMarker from './lib/BtnMarker.mjs';
 
 console.debug('App start:', window.L);
 
-// accessibilityPlugin(L);
+accessibilityPlugin(L);
+// createMarker(L);
 
 const LOCALE = new Locale(L, window.location);
 await LOCALE.load(LOCALE.fromUrl());
@@ -28,12 +32,15 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: L._('© OpenStreetMap')
 }).addTo(MAP);
 
-L.marker([51.5, -0.09], {
+const MARKER = new L.a11y.Marker([51.5, -0.09], {
+// L.marker([51.5, -0.09], {
   alt: L._('Marker: {name}', { name: 'Sterry Street, London, SE1 4NE' }),
   title: L._('Marker: {name}', { name: 'Sterry Street, London, SE1 4NE' })
 })
   .addTo(MAP)
   .bindPopup(L._('Hello! I’m a translation test.'));
+
+console.debug('A11y marker', MARKER);
 
 L.marker([51.5055, -0.098888], { interactive: false }).addTo(MAP);
 
