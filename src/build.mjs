@@ -5,18 +5,24 @@
  * @see https://github.com/Leaflet/Leaflet/blob/master/PLUGIN-GUIDE.md
  */
 
-import { readFile } from 'fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 // import info from '../package.json' with { type: 'json' };
 
-const PKG = JSON.parse(await readFile('./package.json'));
+try {
+  const PKG = JSON.parse(await readFile('./package.json'));
 
-const modulePath = PKG.module.replace('src/', '');
+  const modulePath = PKG.module.replace('src/', '');
 
-const { default: pluginFunction } = await import(modulePath);
+  const { default: pluginFunction } = await import(modulePath);
 
-const CODE = getPluginTemplate(pluginFunction.toString());
+  const CODE = getPluginTemplate(pluginFunction.toString());
 
-console.log(CODE);
+  await writeFile(PKG.main, CODE, 'utf8');
+
+  console.warn('Build:', modulePath, PKG.main);
+} catch (err) {
+  console.error('Build Error:', err)
+}
 
 function getPluginTemplate (pluginFunction) {
   return `/* Built: ${new Date().toISOString()} */
