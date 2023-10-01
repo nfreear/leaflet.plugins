@@ -76,7 +76,7 @@ License: [MIT][].
 [ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
 [npm]: https://www.npmjs.com/package/leaflet.a11y
 [npm-img]: https://img.shields.io/npm/v/leaflet.a11y
-[leaflet-img]: [leaflet-badge]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
+[leaflet-img]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
 [demo]: https://nfreear.github.io/leaflet.a11y/
 [Leaflet]: https://leafletjs.com/
 [accessibility]: https://leafletjs.com/examples/accessibility/
