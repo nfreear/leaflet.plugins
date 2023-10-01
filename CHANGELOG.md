@@ -4,7 +4,7 @@
 ## Version 0.3.0
 
 * Release: 26-Sep-2023,
-* Do things the Leaflet way – switch to use [`L.Map.addInitHook`][addInitHook] ([#8][])
+* Do things the Leaflet way – adopt [`L.Map.addInitHook`][addInitHook] ([#8][])
 * Allow for multiple maps ([#8][])
 * Convert plugin to ESM module / class, with a build script ([#8][])
 * Use an "import map" ([#11][])
@@ -66,7 +66,7 @@
 [#7]: https://github.com/nfreear/leaflet.a11y/issues/7
   "Fix null lang and empty string role bugs, etc. (4 tasks) [bug]"
 [#8]: https://github.com/nfreear/leaflet.a11y/issues/8
-  "Convert plugin to ESM module, with a build step (4 tasks)"
+  "Use 'addInitHook'; Convert plugin to an ES module, with build step #8 (4 tasks)"
 [#9]: https://github.com/nfreear/leaflet.a11y/issues/9
   "Add support for 3rd-party plugins, for example, fullscreen"
 [#10]: https://github.com/nfreear/leaflet.a11y/issues/10
@@ -74,9 +74,9 @@
 [#11]: https://github.com/nfreear/leaflet.a11y/issues/11
   "Use an import map"
 [#12]: https://github.com/nfreear/leaflet.a11y/issues/12
-  "Put locale import code in a separate class"
+  "Put locale import code in a separate class #12"
 [#14]: https://github.com/nfreear/leaflet.a11y/issues/14
-  "“I want to retire” #14"
+  "“I want to retire” #14 [doc]"
 [addInitHook]: https://leafletjs.com/reference.html#class-constructor-hooks
   "Leaflet API – Class – Constructor hooks"
 

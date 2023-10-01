@@ -1,5 +1,6 @@
 [![Node.js CI][ci-img]][ci]
 [![NPM][npm-img]][npm]
+[![Leaflet 1.9.4][leaflet-img]][leaflet]
 
 # Leaflet.a11y
 
@@ -14,9 +15,9 @@ This plugin does _NOT_ replace [accessibility][] efforts in [core Leaflet][bugs]
 
 The aim for this plugin is for it to become obsolete and to retire it, because sufficient accessibility fixes and enhancements have been made to core Leaflet. For more see [#14][].
 
-## What is "A11y"?
+## What is “A11y“?
 
-"A11y" is a numeronym – an abbreviation for accessibility. It is often pronounced "alley" (see [#10][]).
+“A11y“ is a numeronym – an abbreviation for accessibility. It is often pronounced “alley“ (see [#10][]).
 
 ## Leaflet.i18n plugin optional
 
@@ -45,7 +46,7 @@ Include or `import` core Leaflet and the plugins:
 <script src="path/to/Leaflet.a11y.js"></script>
 ```
 
-Then, set the `a11yPlugin` option when creating a map:
+Then, simply set the `a11yPlugin` option when creating a map:
 
 ```js
 var map = L.map('map', {
@@ -56,6 +57,17 @@ var map = L.map('map', {
 // ...
 ```
 
+## Build and Test
+
+```
+npm install
+npm run build
+npm test
+npm start
+```
+
+Feedback, contributions and pull requests are welcomed!
+
 ---
 License: [MIT][].
 
@@ -64,6 +76,7 @@ License: [MIT][].
 [ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
 [npm]: https://www.npmjs.com/package/leaflet.a11y
 [npm-img]: https://img.shields.io/npm/v/leaflet.a11y
+[leaflet-img]: [leaflet-badge]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
 [demo]: https://nfreear.github.io/leaflet.a11y/
 [Leaflet]: https://leafletjs.com/
 [accessibility]: https://leafletjs.com/examples/accessibility/
