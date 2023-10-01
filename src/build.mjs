@@ -21,7 +21,7 @@ try {
 
   console.warn('Build:', modulePath, PKG.main);
 } catch (err) {
-  console.error('Build Error:', err)
+  console.error('Build Error:', err);
 }
 
 function getPluginTemplate (pluginFunction) {
