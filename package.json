@@ -1,14 +1,14 @@
 {
   "name": "leaflet.locale",
   "version": "0.1.0",
-  "description": "A localization/ translation plugin for Leaflet.",
+  "description": "Locales / language packs for Leaflet.",
   "main": "./Leaflet.locale.js",
   "module": "./src/Locale.mjs",
   "license": "MIT",
   "author": "Nick Freear",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nfreear/leaflet.a11y.git"
+    "url": "https://github.com/nfreear/leaflet.locale.git"
   },
   "peerDependencies": {
     "leaflet": "^1.0.0"

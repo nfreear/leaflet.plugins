@@ -1,6 +1,8 @@
 /**
  * CLI: Build a UMD-pattern Leaflet plugin, based on the ESM class.
  *
+ * While its small, put ALL locale-data directly in the plugin JS file!
+ *
  * @see Locale.mjs
  * @see https://github.com/Leaflet/Leaflet/blob/master/PLUGIN-GUIDE.md
  */
