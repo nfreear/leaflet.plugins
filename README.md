@@ -13,6 +13,8 @@ It uses the [Leaflet.i18n][] internationalisation plugin.
 * Demo: [nfreear.github.io/leaflet.a11y][demo]
 * See: Leaflet/Leaflet/issues/9092
 
+Also, fix accessibility issues with [Leaflet.a11y][].
+
 ## Usage
 
 Include or `import` core Leaflet and the plugins:
@@ -63,4 +65,6 @@ License: [MIT][].
 [Leaflet]: https://leafletjs.com/
 [L-9092]: https://github.com/Leaflet/Leaflet/issues/9092
   "Add placeholder function for translation/localization/i18n to Leaflet #9092"
+[Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
+[Leaflet.a11y]: https://github.com/nfreear/leaflet.a11y
 [MIT]: https://nfreear.mit-license.org/

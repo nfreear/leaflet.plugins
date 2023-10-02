@@ -48,7 +48,7 @@ function getPluginTemplate (pluginFunc, localeData) {
 
   // attach your plugin to the global 'L' variable
   if (typeof window !== 'undefined' && window.L) {
-    // Was: window.L.a11y = factory(L); // eslint-disable-line no-undef
+    // Was: window.L.l10n = factory(L); // eslint-disable-line no-undef
     factory(L);
   }
 }(function (L) {
