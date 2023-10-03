@@ -6,12 +6,12 @@
 
 A localization/ translation plugin for [Leaflet][].
 
-The plugin contains both locales/ language pack files, and code to load them (see [L-9092][]).
+The plugin contains both locales/ language pack files, and the code to load them.
 
 It uses the [Leaflet.i18n][] internationalisation plugin.
 
 * Demo: [nfreear.github.io/leaflet.a11y][demo]
-* See: Leaflet/Leaflet/issues/9092
+* See: [Leaflet/Leaflet/issues/9092][L-9092]
 
 Also, fix accessibility issues with [Leaflet.a11y][].
 
@@ -25,11 +25,12 @@ Include or `import` core Leaflet and the plugins:
 <script src="path/to/Leaflet.locale.js"></script>
 ```
 
-Then, call `load` and use the `L._` translation function:
+Then, call `L.l10n.load()` and use the `L._` translation function:
 
 ```js
 // Load language pack, based on URL parameter ('?lang=fr').
-await L.l10n.load(L.l10n.fromUrl());
+await L.l10n.fromUrl.load();
+// Or: await L.l10n.load('fr');
 
 var map = L.map('map').setView([51.505, -0.09], 13);
 
@@ -67,4 +68,5 @@ License: [MIT][].
   "Add placeholder function for translation/localization/i18n to Leaflet #9092"
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
 [Leaflet.a11y]: https://github.com/nfreear/leaflet.a11y
+  "An accessibility plugin for Leaflet"
 [MIT]: https://nfreear.mit-license.org/

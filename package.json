@@ -6,6 +6,7 @@
   "module": "./src/Locale.mjs",
   "license": "MIT",
   "author": "Nick Freear",
+  "homepage": "https://nfreear.github.io/leaflet.a11y/",
   "repository": {
     "type": "git",
     "url": "https://github.com/nfreear/leaflet.locale.git"

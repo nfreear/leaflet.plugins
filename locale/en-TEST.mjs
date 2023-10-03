@@ -5,7 +5,7 @@
  */
 
 export const code = 'en';
-export const file = 'en-TEST';
+export const file = 'en-Test';
 export const locale = {
   // Attribution - Leaflet, OpenStreetMap, ...
   'A JavaScript library for interactive maps': 'A JavaScript library for interactive maps [Z]',

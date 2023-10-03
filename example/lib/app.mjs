@@ -9,7 +9,8 @@ console.debug('App start:', window.L);
 const { L } = window;
 
 // Load language pack, based on URL parameter ('?lang=fr').
-await L.l10n.load(L.l10n.fromUrl());
+await L.l10n.fromUrl.load();
+// Or: await L.l10n.load('fr');
 
 const MAP = L.map('map', { a11yPlugin: true }).setView([51.505, -0.09], 13);
 
