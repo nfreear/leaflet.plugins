@@ -16,31 +16,47 @@ export default function createLocale (L, location, addToL = true) {
 
     get L () { return this._L; }
     get locales () { return this._localeArray; }
-    get codes () { return this.locales.map((loc) => loc.code); }
-    get regex () { return /[?&]lang=(fr|en-TEST)/; }
 
-    findLocale (file) {
-      return this.locales.find((loc) => loc.file === file);
+    get codes () { return this.locales.map((loc) => loc.code); }
+    get fileIds () { return this.locales.map((loc) => loc.file); }
+
+    /** Case-insensitive Regular Expression.
+     */
+    get regex () {
+      return new RegExp(`[?&]lang=(${this.fileIds.join('|')})`, 'i');
+      // Was: return /[?&]lang=(fr|en-TEST)/;
+    }
+
+    findLocale (fileId) {
+      return this.locales.find((loc) => loc.file === fileId);
     }
 
     /* async importLocale (file) {
       return await import(`./${file}.js`);
     } */
 
-    fromUrl () {
+    get fromUrl () {
+      this._fileId = this.getFromUrl();
+
+      return this; // Allow chaining.
+    }
+
+    getFromUrl () {
       const MATCH = this._location.search.match(this.regex);
       return MATCH ? MATCH[1] : null;
     }
 
-    async load (FILE) {
-      if (FILE) {
-        const { code, locale } = this.findLocale(FILE);
+    async load (fileId = null) {
+      this._fileId = fileId || this._fileId;
+      if (this._fileId) {
+        const LOC = this.findLocale(this._fileId);
         // Was: const { LOCALE, CODE } = await this.importLocale(FILE);
+        console.assert(LOC && LOC.code && LOC.locale, `Locale not found: ${this._fileId}`);
 
-        this.L.registerLocale(code, locale);
-        this.L.setLocale(code);
+        this.L.registerLocale(LOC.code, LOC.locale);
+        this.L.setLocale(LOC.code);
 
-        console.debug('Locale.load:', code, FILE, locale);
+        console.debug('Locale.load:', LOC.code, this._fileId, this.regex, LOC.locale);
       }
     }
   }
