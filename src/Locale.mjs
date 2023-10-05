@@ -65,8 +65,9 @@ export default function createLocale (L, location, addToL = true) {
   const INST = new Locale(L, location, LOCALES);
 
   if (addToL) {
-    L._locale = INST;
-    L.l10n = INST; // "localisation" numeronym.
+    L.translate = INST;
+    // L._locale = INST;
+    L.l10n = INST; // Deprecated. // "localisation" numeronym.
   }
 
   return INST;

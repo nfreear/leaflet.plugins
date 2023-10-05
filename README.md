@@ -25,12 +25,12 @@ Include or `import` core Leaflet and the plugins:
 <script src="path/to/Leaflet.translate.js"></script>
 ```
 
-Then, call `L.l10n.load()` and use the `L._` translation function:
+Then, call `L.translate.load()` and use the `L._` translation function:
 
 ```js
 // Load language pack, based on URL parameter ('?lang=fr').
-await L.l10n.fromUrl.load();
-// Or: await L.l10n.load('fr');
+await L.translate.fromUrl.load();
+// Or: await L.translate.load('fr');
 
 var map = L.map('map').setView([51.505, -0.09], 13);
 
