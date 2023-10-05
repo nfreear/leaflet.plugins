@@ -28,7 +28,7 @@ try {
   await writeFile(INDEX, indexData, 'utf8');
 
   console.warn('Locales:', localeCodes);
-  console.warn('Build:', PKG.module, '>', PKG.main, '&', INDEX);
+  console.warn('Build:', PKG.module, '⇨', PKG.main, '&', INDEX);
 } catch (err) {
   console.error('Build Error:', err);
 }
