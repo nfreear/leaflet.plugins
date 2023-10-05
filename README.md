@@ -2,11 +2,11 @@
 [![NPM][npm-img]][npm]
 [![Leaflet 1.9.4][leaflet-img]][leaflet]
 
-# Leaflet.locale #
+# Leaflet.translate #
 
 A localization/ translation plugin for [Leaflet][].
 
-The plugin contains both locales/ language pack files, and the code to load them.
+The plugin contains both translations/ language pack files, and the code to load them.
 
 It uses the [Leaflet.i18n][] internationalisation plugin.
 
@@ -22,7 +22,7 @@ Include or `import` core Leaflet and the plugins:
 ```html
 <script src="path/to/leaflet.js"></script>
 <script src="path/to/Leaflet.i18n.js"></script>
-<script src="path/to/Leaflet.locale.js"></script>
+<script src="path/to/Leaflet.translate.js"></script>
 ```
 
 Then, call `L.l10n.load()` and use the `L._` translation function:
@@ -57,10 +57,10 @@ Feedback, contributions and pull requests are welcome!
 ---
 License: [MIT][].
 
-[ci]: https://github.com/nfreear/leaflet.locale/actions/workflows/node.js.yml
-[ci-img]: https://github.com/nfreear/leaflet.locale/actions/workflows/node.js.yml/badge.svg
-[npm]: https://www.npmjs.com/package/leaflet.locale
-[npm-img]: https://img.shields.io/npm/v/leaflet.locale
+[ci]: https://github.com/nfreear/Leaflet.translate/actions/workflows/node.js.yml
+[ci-img]: https://github.com/nfreear/Leaflet.translate/actions/workflows/node.js.yml/badge.svg
+[npm]: https://www.npmjs.com/package/leaflet.translate
+[npm-img]: https://img.shields.io/npm/v/leaflet.translate
 [leaflet-img]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
 [demo]: https://nfreear.github.io/leaflet.a11y/
 [Leaflet]: https://leafletjs.com/
