@@ -1,2 +1,7 @@
 .github/*
 *BAK*
+*test*
+Leaflet.locale.js
+src/build.mjs
+
+.hintrc
