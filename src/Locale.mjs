@@ -5,7 +5,10 @@
 import LOCALES from '../locale/index.mjs';
 
 export default function createLocale (L, location, addToL = true) {
-  console.assert(L && L.registerLocale && L.setLocale, "'L.i18n' plugin needed");
+  // Handle dynamic imports better.
+  function delayedAssert () {
+    console.assert(L && L.registerLocale && L.setLocale, "'L.i18n' plugin needed");
+  }
 
   class Locale {
     constructor (L, location, localeArray) {
@@ -47,6 +50,7 @@ export default function createLocale (L, location, addToL = true) {
     }
 
     async load (fileId = null) {
+      delayedAssert();
       this._fileId = fileId || this._fileId;
       if (this._fileId) {
         const LOC = this.findLocale(this._fileId);
