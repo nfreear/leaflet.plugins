@@ -10,7 +10,10 @@ export const locale = {
   // Attribution - Leaflet, OpenStreetMap, ...
   'A JavaScript library for interactive maps': 'A JavaScript library for interactive maps [Z]',
   '© OpenStreetMap': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> [Z]',
-  '© {a}OpenStreetMap{/a} contributors': '© {a}OpenStreetMap{/a} contributors [Z]',
+  '© {OSM} contributors': '© {OSM} contributors [Z]',
+  'Map data © {OSM} contributors.': 'Map data © {OSM} contributors. [Z]',
+  'Tiles from {name}.': 'Tiles from {name}. [Z]',
+
   // Controls.
   'Close popup': 'Close popup [Z]', // Popup close button.
   map: 'map [Z]', // mapContainerElem.ariaLabel, mapContainerElem.ariaRoleDescription.

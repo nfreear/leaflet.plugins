@@ -9,7 +9,10 @@ export const file = 'fr';
 export const locale = {
   // Attribution - Leaflet, OpenStreetMap, ...
   'A JavaScript library for interactive maps': 'Une bibliothèque JavaScript pour cartes interactives',
-  '© {a}OpenStreetMap{/a} contributors': '© Contributeurs {a}d’OpenStreetMap{/a}',
+  '© {OSM} contributors': '© Contributeurs d’{OSM}',
+  'Map data © {OSM} contributors.': 'Données cartographiques © contributeurs {OSM}.',
+  'Tiles from {name}.': 'Tuiles de {name}.',
+
   // Controls.
   'Close popup': 'Fermer', // Popup close button.
   map: 'carte', // mapContainerElem.ariaRoleDescription.
