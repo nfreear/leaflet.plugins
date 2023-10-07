@@ -16,6 +16,7 @@
     "leaflet": "^1.0.0"
   },
   "scripts": {
+    "prepublish": "npm run build && npm test",
     "build": "node src/build.mjs",
     "start": "npm run build && npx servor",
     "fix": "semistandard --fix",
@@ -24,6 +25,7 @@
   "keywords": [
     "leaflet",
     "map",
+    "plugin",
     "i18n",
     "internationalization",
     "internationalisation",

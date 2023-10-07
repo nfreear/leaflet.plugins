@@ -4,7 +4,7 @@
 
 # Leaflet.translate #
 
-A localization/ translation plugin for [Leaflet][].
+A localization/ translation plugin for [Leaflet][] and [Leaflet plugins][].
 
 The plugin contains both translations/ language pack files, and the code to load them.
 
@@ -52,7 +52,7 @@ npm test
 npm start
 ```
 
-Feedback, contributions and pull requests are welcome!
+[Feedback][], translations, contributions and pull requests are welcome!
 
 ---
 License: [MIT][].
@@ -62,8 +62,10 @@ License: [MIT][].
 [npm]: https://www.npmjs.com/package/leaflet.translate
 [npm-img]: https://img.shields.io/npm/v/leaflet.translate
 [leaflet-img]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
+[feedback]: https://github.com/nfreear/Leaflet.translate/issues
 [demo]: https://nfreear.github.io/leaflet.a11y/
 [Leaflet]: https://leafletjs.com/
+[Leaflet plugins]: https://leafletjs.com/plugins.html
 [L-9092]: https://github.com/Leaflet/Leaflet/issues/9092
   "Add placeholder function for translation/localization/i18n to Leaflet #9092"
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
