@@ -1,7 +1,7 @@
 {
   "name": "leaflet.translate",
   "X-old-name": "leaflet.locale",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Translations/ language packs for Leaflet core and plugins.",
   "main": "./Leaflet.translate.js",
   "module": "./src/Locale.mjs",
@@ -16,7 +16,7 @@
     "leaflet": "^1.0.0"
   },
   "scripts": {
-    "prepublish": "npm run build && npm test",
+    "prepublishOnly": "npm run build && npm test",
     "build": "node src/build.mjs",
     "start": "npm run build && npx servor",
     "fix": "semistandard --fix",
