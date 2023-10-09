@@ -1,0 +1,36 @@
+
+:root {
+  --leaflet-keyboard-help-button-offset-x: 18.5rem;
+}
+
+.leaflet-keyboard-help-popup kbd {
+  background: #eee;
+  display: inline-block;
+  font-family: Google Sans Text,Roboto,Arial,sans-serif;
+  X-font-family: Consolas, Courier, monospace;
+  margin-right: .7rem;
+  padding: .1rem;
+  text-align: center;
+  min-width: 1.1rem;
+
+  line-height: 1.6;
+}
+
+.leaflet-keyboard-help-button {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.85); /* Was: 0.8 */
+  border: none;
+  color: #0078A8;
+  cursor: pointer;
+  font-size: .77rem;
+  padding: 2px 4px;
+  position: relative;
+  text-decoration: underline;
+  transform: translate(
+    calc(
+      var(--map-w) - var(--leaflet-keyboard-help-button-offset-x, 19rem)
+    ),
+    var(--map-h)
+  );
+  z-index: 9999;
+}

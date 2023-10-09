@@ -1,0 +1,25 @@
+{
+  "name": "l.keyboard-help",
+  "version": "0.1.0",
+  "description": "A control to display help for keyboard shortcuts in a popup.",
+  "main": "./L.keyboard-help.js",
+  "module": "./src/KeyboardHelp.mjs",
+  "license": "MIT",
+  "author": "Nick Freear",
+  "homepage": "https://nfreear.github.io/leaflet.a11y/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfreear/leaflet.a11y.git"
+  },
+  "peerDependencies": {
+    "leaflet": "^1.0.0"
+  },
+  "keywords": [
+    "leaflet",
+    "plugin",
+    "map",
+    "keyboard",
+    "a11y",
+    "accessibility"
+  ]
+}
