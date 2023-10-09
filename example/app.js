@@ -11,19 +11,23 @@ import 'Leaflet.i18n';
 import accessibilityPlugin from 'Leaflet.a11y.esm';
 import Locale from 'Leaflet.locale';
 
+import keyboardHelpPlugin from 'Leaflet.keyboard.help';
+
 // import createMarker from './lib/InputMarker.mjs';
 // import createMarker from './lib/BtnMarker.mjs';
 
 console.debug('App start:', window.L);
 
 accessibilityPlugin(L);
+keyboardHelpPlugin(L);
 // createMarker(L);
 
 const LOCALE = new Locale(L, window.location);
 await LOCALE.load(LOCALE.fromUrl());
 
 const MAP = L.map('map', {
-  a11yPlugin: true
+  a11yPlugin: true,
+  keyboardHelp: true
 })
   .setView([51.505, -0.09], 13);
 
@@ -40,9 +44,17 @@ const MARKER = new L.a11y.Marker([51.5, -0.09], {
   .addTo(MAP)
   .bindPopup(L._('Hello! I’m a translation test.'));
 
-console.debug('A11y marker', MARKER);
+console.debug('A11y marker:', MARKER);
 
-L.marker([51.5055, -0.098888], { interactive: false }).addTo(MAP);
+L.a11y.faMarker([51.507, -0.098888], {
+  faId: 'house'
+})
+  .bindPopup(L._('A FontAwesome-based marker: house')).addTo(MAP);
+
+L.a11y.faMarker([51.505, -0.098888], {
+  faId: 'industry'
+})
+  .bindPopup(L._('A FontAwesome-based marker: industry')).addTo(MAP);
 
 L.marker([51.5044, -0.08555], { icon: L.divIcon(), title: 'PIN' }).addTo(MAP);
 

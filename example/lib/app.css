@@ -8,7 +8,15 @@ body {
 }
 
 * {
-  outline-offset: .15rem;
+  outline-offset: .2rem;
+  text-underline-offset: .15rem;
+}
+
+:focus,
+:hover {
+  text-decoration-thickness: 2px;
+  text-underline-offset: .2rem;
+  transition: all 300ms;
 }
 
 h1,
@@ -40,14 +48,51 @@ nav li::after {
 
 #map {
   X-border: 1px solid #ddd;
-  font-size: .78rem;
   height: 64vh;
   min-height: 230px;
 }
 
-.leaflet-div-icon {
-  background: transparent;
-  border: 2px solid yellow;
-  border-radius: 50%;
-  box-shadow: 0 0 2px 2px #029;
+.visibly-hidden,
+.sr-only {
+  display: absolute;
+  overflow: hidden;
+  height: 0;
+  width: 0;
 }
+
+kbd {
+  background: #eee;
+  display: inline-block;
+  font-family: Google Sans Text,Roboto,Arial,sans-serif;
+  X-font-family: Consolas, Courier, monospace;
+  margin-right: .7rem;
+  padding: .1rem;
+  text-align: center;
+  min-width: 1.1rem;
+
+  line-height: 1.6;
+}
+
+:root {
+  --leaflet-keyboard-help-button-offset-x: 18.5rem;
+}
+
+.leaflet-keyboard-help-button {
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.85); /* Was: 0.8 */
+  border: none;
+  color: #0078A8;
+  cursor: pointer;
+  font-size: .77rem;
+  padding: 2px 4px;
+  position: relative;
+  text-decoration: underline;
+  transform: translate(
+    calc(
+      var(--map-w) - var(--leaflet-keyboard-help-button-offset-x, 19rem)
+    ),
+    var(--map-h)
+  );
+  z-index: 9999;
+}
+/* End */
