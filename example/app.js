@@ -9,14 +9,13 @@ import L from 'leaflet.esm.shim';
 import 'Leaflet.i18n';
 import 'Leaflet.a11y';
 // import accessibilityPlugin from 'Leaflet.a11y.esm';
-import Locale from 'Leaflet.locale';
+import 'Leaflet.translate';
 
 console.debug('App start:', window.L);
 
 // accessibilityPlugin(L);
 
-const LOCALE = new Locale(L, window.location);
-await LOCALE.load(LOCALE.fromUrl());
+await L.translate.fromUrl.load();
 
 const MAP = L.map('map', {
   a11yPlugin: true

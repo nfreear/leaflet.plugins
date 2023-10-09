@@ -6,6 +6,7 @@
   "module": "./src/AccessibilityPlugin.mjs",
   "license": "MIT",
   "author": "Nick Freear",
+  "homepage": "https://nfreear.github.io/leaflet.a11y/",
   "repository": {
     "type": "git",
     "url": "https://github.com/nfreear/leaflet.a11y.git"
