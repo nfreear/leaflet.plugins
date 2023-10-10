@@ -3,17 +3,29 @@
   --leaflet-keyboard-help-button-offset-x: 18.5rem;
 }
 
+.leaflet-keyboard-help-popup > * > * {
+  X-margin: .7rem;
+}
+.leaflet-keyboard-help-popup h2 {
+  font-size: 1.4rem;
+  margin: .6rem 0 .7rem;
+}
+
+.leaflet-keyboard-help-popup table {
+  font-size: 1.1rem;
+}
+
 .leaflet-keyboard-help-popup kbd {
   background: #eee;
   display: inline-block;
   font-family: Google Sans Text,Roboto,Arial,sans-serif;
-  X-font-family: Consolas, Courier, monospace;
+  /* font-family: Consolas, Courier, monospace; */
   margin-right: .7rem;
   padding: .1rem;
   text-align: center;
   min-width: 1.1rem;
 
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .leaflet-keyboard-help-button {

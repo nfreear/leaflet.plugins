@@ -9,16 +9,19 @@ import L from 'leaflet.esm.shim';
 import 'Leaflet.i18n';
 import 'Leaflet.a11y';
 // import accessibilityPlugin from 'Leaflet.a11y.esm';
+import keyboardHelpPlugin from 'Leaflet.keyboard-help';
 import 'Leaflet.translate';
 
 console.debug('App start:', window.L);
 
+keyboardHelpPlugin(L);
 // accessibilityPlugin(L);
 
 await L.translate.fromUrl.load();
 
 const MAP = L.map('map', {
-  a11yPlugin: true
+  a11yPlugin: true,
+  keyboardHelp: true
 })
   .setView([51.505, -0.09], 13);
 
