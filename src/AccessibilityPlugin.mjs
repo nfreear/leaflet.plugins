@@ -7,6 +7,7 @@ export default function createPlugin (L) {
 
   /**
    * L._: Translation function, or a dummy/placeholder.
+   * @see GH Issue: Leaflet/Leaflet/issues/9092
    */
   L._ = L._ || ((str) => str);
 
@@ -54,10 +55,10 @@ export default function createPlugin (L) {
     /** Translate default controls - Zoom in/out, Attribution.
      */
     _localizeControls () {
-      this._qt('.leaflet-control-zoom-in', 'ariaLabel', L._('Zoom in')); // src/control/Control.Zoom.js#L30
+      this._qt('.leaflet-control-zoom-in', 'aria-label', L._('Zoom in')); // src/control/Control.Zoom.js#L30
       this._qt('.leaflet-control-zoom-in', 'title', L._('Zoom in'));
 
-      this._qt('.leaflet-control-zoom-out', 'ariaLabel', L._('Zoom out'));
+      this._qt('.leaflet-control-zoom-out', 'aria-label', L._('Zoom out'));
       this._qt('.leaflet-control-zoom-out', 'title', L._('Zoom out'));
 
       this._qt('.leaflet-control-attribution a[href $= "leafletjs.com"]', 'title', L._('A JavaScript library for interactive maps'));
@@ -80,7 +81,7 @@ export default function createPlugin (L) {
     _localizePopups () {
       this.map.on('popupopen', (ev) => {
         ev.popup._closeButton.title = L._('Close popup'); // src/layer/Popup.js#L102
-        ev.popup._closeButton.ariaLabel = L._('Close popup');
+        ev.popup._closeButton.setAttribute('aria-label', L._('Close popup'));
 
         console.debug('a11y.popupopen:', ev);
       });
@@ -92,9 +93,9 @@ export default function createPlugin (L) {
      * @see SC 4.1.2: https://w3.org/TR/WCAG21/#name-role-value
      */
     _fixMapContainer () {
-      if (!this.mapElem.role) this.mapElem.role = 'region';
-      if (!this.mapElem.ariaLabel) this.mapElem.ariaLabel = L._('map');
-      this.mapElem.ariaRoleDescription = L._('map');
+      if (!this.mapElem.hasAttribute('role')) this.mapElem.setAttribute('role', 'region');
+      if (!this.mapElem.hasAttribute('aria-label')) this.mapElem.setAttribute('aria-label', L._('map'));
+      this.mapElem.setAttribute('aria-roledescription', L._('map'));
     }
 
     /**
@@ -109,7 +110,7 @@ export default function createPlugin (L) {
 
         if (markerEl && !isInteractive) {
           markerEl.tabIndex = -1;
-          markerEl.role = undefined;
+          markerEl.setAttribute('role', undefined);
           markerEl.classList.add('x-static-marker');
         }
         if (markerEl) {
@@ -127,7 +128,7 @@ export default function createPlugin (L) {
      */
     _managePopupFocus (MAP) {
       this.map.on('popupopen', (ev) => {
-        ev.popup._container.role = 'dialog'; // Not modal!
+        ev.popup._container.setAttribute('role', 'dialog'); // Not modal!
         ev.popup._container.tabIndex = -1;
 
         const SOURCE = ev.popup._source;
@@ -152,12 +153,12 @@ export default function createPlugin (L) {
 
     /** _qt: Find element within map container, and set a property on it, translated with '_()' (i18n plugin).
     */
-    _qt (selector, property, str) {
+    _qt (selector, attribute, value) {
       const ELEM = this.mapElem.querySelector(selector);
       console.assert(ELEM, `ELEM.querySelector(${selector})`);
 
       if (ELEM) {
-        ELEM[property] = str;
+        ELEM.setAttribute(attribute, value); // Was: ELEM[property] = str;
       }
     }
   } // End: class.
@@ -171,7 +172,7 @@ export default function createPlugin (L) {
     console.debug('L.Map.addInitHook:', MAP);
 
     if (MAP.options.accessibilityPlugin || MAP.options.a11yPlugin) {
-      MAP.a11y = new AccessibilityPlugin(this);
+      MAP.a11y = new AccessibilityPlugin(MAP);
 
       MAP.a11y.load();
     }
