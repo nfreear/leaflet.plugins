@@ -1,4 +1,7 @@
 .github/*
 example
-_Leaflet
+_Leaflet*
+packages
+web-components
 *BAK*
+*test*

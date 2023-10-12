@@ -7,6 +7,7 @@
 An accessibility and localization/translation plugin for [Leaflet][].
 
 * See: [Changelog][]
+* See: [Roadmap][]
 * Demo: [nfreear.github.io/leaflet.a11y][demo]
 
 ## Aim
@@ -32,7 +33,7 @@ The plugin currently does the following:
 1. Set a `role` and `aria-label` on the Leaflet map container element (see [L-7193][]).
 2. Manage keyboard focus when popups are opened and closed (see [L-8115][]).
 3. Fix so non-interactive markers are correctly identified ([L-8116][])
-4. Enable map controls (Zoom in, Zoom out, Close popup, ...) to be translated into a language that has been set with `setLocale` ([Leaflet.i18n][]). Mostly relevant for accessibility, as most text is hidden from visual users ([L-9092]).
+4. Enable map controls (Zoom in, Zoom out, Close popup, ...) to be translated into a language that has been set with `setLocale` ([Leaflet.i18n][]). Mostly relevant for accessibility, as most text is hidden from visual users ([L-9092][]).
 
 More to follow!
 
@@ -71,6 +72,7 @@ Feedback, contributions and pull requests are welcomed!
 ---
 License: [MIT][].
 
+[roadmap]: https://github.com/nfreear/leaflet.a11y/blob/main/ROADMAP.md
 [changelog]: https://github.com/nfreear/leaflet.a11y/blob/main/CHANGELOG.md
 [ci]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg

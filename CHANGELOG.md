@@ -1,11 +1,19 @@
 
 # Release Notes
 
+## Version 0.4.0
+
+* Release: TODO,
+* Move translations into [Leaflet.translate][] ([#18][])
+* Fix: Firefox compatibility ([#20][])
+* Start on mono-repo ([#21][])
+* Document [roadmap][] (todos!)
+
 ## Version 0.3.0
 
 * Release: 26-Sep-2023,
 * Do things the Leaflet way – adopt [`L.Map.addInitHook`][addInitHook] ([#8][])
-* Allow for multiple maps ([#8][])
+* Allow for multiple maps on page! ([#8][])
 * Convert plugin to ESM module / class, with a build script ([#8][])
 * Use an "import map" ([#11][])
 * Put locale import code in separate class ([#12][])
@@ -13,22 +21,29 @@
 ## Version 0.2.0
 
 * Release: 22-Sep-2023.
-* Fixes null lang and empty string role bugs ([#7][])
-* Fix to only set focus when opened by a trigger element (#7)
+* Fix: null lang and empty string role bugs ([#7][])
+* Fix: only set focus when opened by a trigger element ([#7][])
 * `Leaflet.i18n` plugin is optional ([#6][])
 * README and documentation fixes ([#1][])
 
 ## Version 0.1.0
 
 * Release: 10-Sep-2023.
-* Initial release
+* Initial release of [Leaflet.a11y][].
 * Fixes 4+ accessibility issues in core Leaflet.js
-* Localizes/translates core Leaflet user-interface
+* Set a `role` and `aria-label` on the Leaflet map container ([#2][], [L-7193][]).
+* Manage keyboard focus when popups are opened and closed ([#3][], [L-8115][]).
+* Fix so non-interactive markers are correctly identified ([#4][], [L-8116][])
+* Localization - enable map controls (Zoom in, Close popup, ...) to be translated into a language that has been set with `setLocale` ([Leaflet.i18n][]) ([L-9092][]).
+
+---
 
 [readme]: https://github.com/nfreear/leaflet.a11y#readme
+[roadmap]: https://github.com/nfreear/leaflet.a11y/blob/main/ROADMAP.md
 [demo]: https://nfreear.github.io/leaflet.a11y
   "Example site using ‘Leaflet.a11y’ plugin"
 [i18n plugin]: https://github.com/umap-project/Leaflet.i18n
+[Leaflet.translate]: https://github.com/nfreear/Leaflet.translate
 [wcag eval]: https://github.com/Malvoz/web-maps-wcag-evaluation
   "Web map tools WCAG 2.1 evaluation, by @Malvoz (13-Sep-2021)"
 
@@ -77,6 +92,11 @@
   "Put locale import code in a separate class #12"
 [#14]: https://github.com/nfreear/leaflet.a11y/issues/14
   "“I want to retire” #14 [doc]"
+[#18]: https://github.com/nfreear/leaflet.a11y/issues/18
+  "Separate locale data and functionality into separate plugin"
+[#20]: https://github.com/nfreear/leaflet.a11y/issues/20
+  "Fix and document browser compatibility - Firefox etc."
+[#21]: https://github.com/nfreear/leaflet.a11y/issues/21 "Mono-repo ..."
 [addInitHook]: https://leafletjs.com/reference.html#class-constructor-hooks
   "Leaflet API – Class – Constructor hooks"
 
