@@ -1,7 +1,7 @@
 {
   "name": "l.keyboard-help",
   "version": "0.1.0",
-  "description": "A control to display help for keyboard shortcuts in a popup.",
+  "description": "A control to display help for keyboard shortcuts, in a Leaflet map.",
   "main": "./L.keyboard-help.js",
   "module": "./src/KeyboardHelp.mjs",
   "license": "MIT",
@@ -19,6 +19,7 @@
     "plugin",
     "map",
     "keyboard",
+    "help",
     "a11y",
     "accessibility"
   ]
