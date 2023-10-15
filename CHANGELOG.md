@@ -53,6 +53,10 @@
   "Make the leaflet-container a programmatically determinable element [a11y]"
 [L-7527]: https://github.com/Leaflet/Leaflet/issues/7527
   "Markers that bind to popups should convey the ‘aria-expanded’ state of the popup [a11y]"
+[L-7822]: https://github.com/Leaflet/Leaflet/issues/7822
+  "Accessible vectors [a11y]"
+[L-8251]: https://github.com/Leaflet/Leaflet/pull/8251
+  "Make vectors focusable and labellable [PR][a11y]"
 [L-7968]: https://github.com/Leaflet/Leaflet/issues/7968
   "Potentially set popups to role=’dialog’ [needs decision][a11y]"
 [L-8115]: https://github.com/Leaflet/Leaflet/issues/8115
