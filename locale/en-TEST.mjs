@@ -5,11 +5,11 @@
  */
 
 export const code = 'en';
-export const file = 'en-Test';
+export const file = 'en-test'; // Lowercase!
 export const locale = {
   // Attribution - Leaflet, OpenStreetMap, ...
   'A JavaScript library for interactive maps': 'A JavaScript library for interactive maps [Z]',
-  '© OpenStreetMap': '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> [Z]',
+  '© OpenStreetMap': '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> [Z]',
   '© {OSM} contributors': '© {OSM} contributors [Z]',
   'Map data © {OSM} contributors.': 'Map data © {OSM} contributors. [Z]',
   'Tiles from {name}.': 'Tiles from {name}. [Z]',

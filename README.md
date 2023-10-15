@@ -71,4 +71,4 @@ License: [MIT][].
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
 [Leaflet.a11y]: https://github.com/nfreear/leaflet.a11y
   "An accessibility plugin for Leaflet"
-[MIT]: https://nfreear.mit-license.org/
+[MIT]: https://github.com/nfreear/Leaflet.translate/blob/main/LICENSE

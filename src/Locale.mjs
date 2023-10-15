@@ -31,7 +31,7 @@ export default function createLocale (L, location, addToL = true) {
     }
 
     findLocale (fileId) {
-      return this.locales.find((loc) => loc.file === fileId);
+      return this.locales.find((loc) => loc.file === fileId.toLowerCase());
     }
 
     /* async importLocale (file) {
@@ -61,6 +61,7 @@ export default function createLocale (L, location, addToL = true) {
         this.L.setLocale(LOC.code);
 
         console.debug('Locale.load:', LOC.code, this._fileId, this.regex, LOC.locale);
+        return LOC;
       }
     }
   }

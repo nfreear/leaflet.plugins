@@ -9,14 +9,20 @@ console.debug('App start:', window.L);
 const { L } = window;
 
 // Load language pack, based on URL parameter ('?lang=fr').
-await L.translate.fromUrl.load();
+const LOC = await L.translate.fromUrl.load();
 // Or: await L.translate.load('fr');
+
+if (LOC) {
+  console.debug('App:', LOC.code, LOC.locale);
+} else {
+  console.warn('App: no locale loaded!');
+}
 
 const MAP = L.map('map', { a11yPlugin: true }).setView([51.505, -0.09], 13);
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
   maxZoom: 19,
-  attribution: L._('© OpenStreetMap')
+  attribution: L._('© {OSM} contributors', { OSM: '<a href="https://osm.org/copyright">OpenStreenMap</a>' })
 }).addTo(MAP);
 
 L.marker([51.5, -0.09], {
