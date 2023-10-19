@@ -1,0 +1,42 @@
+{
+  "name": "leaflet.translate",
+  "X-old-name": "leaflet.locale",
+  "version": "0.3.0",
+  "description": "Translations/ language packs for Leaflet core and plugins.",
+  "main": "./Leaflet.translate.js",
+  "module": "./src/Locale.mjs",
+  "license": "MIT",
+  "author": "Nick Freear",
+  "homepage": "https://nfreear.github.io/leaflet.a11y/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfreear/Leaflet.translate.git"
+  },
+  "peerDependencies": {
+    "leaflet": "^1.0.0"
+  },
+  "scripts": {
+    "prepublishOnly": "npm run build && npm test",
+    "build": "node src/build.mjs",
+    "start": "npm run build && npx servor",
+    "fix": "semistandard --fix",
+    "test": "semistandard"
+  },
+  "keywords": [
+    "leaflet",
+    "map",
+    "plugin",
+    "i18n",
+    "internationalization",
+    "internationalisation",
+    "localization",
+    "translation",
+    "translate"
+  ],
+  "devDependencies": {
+    "leaflet-i18n": "^0.3.3",
+    "leaflet.a11y": "^0.3.0",
+    "semistandard": "^17.0.0",
+    "servor": "^4.0.2"
+  }
+}
