@@ -1,4 +1,5 @@
 .DS_Store
+L.keyboard-help.js
 Leaflet.a11y.js
 example/lib/*.mjs
 example/lib/layer/

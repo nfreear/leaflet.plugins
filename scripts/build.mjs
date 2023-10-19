@@ -5,47 +5,21 @@
  * @see https://github.com/Leaflet/Leaflet/blob/master/PLUGIN-GUIDE.md
  */
 
-import { readFile, writeFile } from 'node:fs/promises';
+import * as fs from 'node:fs/promises';
+import { getPluginTemplate, getPackages } from './buildUtils.mjs';
 // import info from '../package.json' with { type: 'json' };
 
 try {
-  const PKG = JSON.parse(await readFile('./package.json'));
+  await getPackages().map(async (PKG, idx) => {
+    // .
+    const { default: pluginFunction } = await import(PKG.modulePath);
 
-  const modulePath = PKG.module.replace('src/', '');
+    const CODE = getPluginTemplate(pluginFunction.toString());
 
-  const { default: pluginFunction } = await import(modulePath);
+    await fs.writeFile(PKG.mainPath, CODE, 'utf8');
 
-  const CODE = getPluginTemplate(pluginFunction.toString());
-
-  await writeFile(PKG.main, CODE, 'utf8');
-
-  console.warn('Build:', modulePath, PKG.main);
+    console.warn('Build:', idx, `${PKG.name}@${PKG.version}\t`, PKG.module, PKG.main);
+  });
 } catch (err) {
   console.error('Build Error:', err);
-}
-
-function getPluginTemplate (pluginFunction) {
-  return `/* Built: ${new Date().toISOString()} */
-
-(function (factory, window) {
-  // define an AMD module that relies on 'leaflet'
-  if (typeof define === 'function' && define.amd) { // eslint-disable-line no-undef
-    define(['leaflet'], factory); // eslint-disable-line no-undef
-
-    // define a Common JS module that relies on 'leaflet'
-  } else if (typeof exports === 'object') {
-    module.exports = factory(require('leaflet'));
-  }
-
-  // attach your plugin to the global 'L' variable
-  if (typeof window !== 'undefined' && window.L) {
-    // Was: window.L.a11y = factory(L); // eslint-disable-line no-undef
-    factory(L);
-  }
-}(function (L) {
-
-(${pluginFunction})(L);
-
-}, window));
-`;
 }
