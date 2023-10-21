@@ -9,12 +9,12 @@ import L from 'leaflet.esm.shim';
 import 'Leaflet.i18n';
 import 'Leaflet.a11y';
 // import accessibilityPlugin from 'Leaflet.a11y.esm';
-import keyboardHelpPlugin from 'Leaflet.keyboard-help';
+import 'Leaflet.keyboard-help';
 import 'Leaflet.translate';
 
 console.debug('App start:', window.L);
 
-keyboardHelpPlugin(L);
+// keyboardHelpPlugin(L);
 // accessibilityPlugin(L);
 
 await L.translate.fromUrl.load();

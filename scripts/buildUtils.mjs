@@ -50,7 +50,7 @@ export function projectPath (dir) {
   return path.resolve(PACKAGES_DIR, '..', dir);
 }
 
-export function getPluginTemplate (pluginFunction) {
+export function getPluginTemplate (pluginFunction, externalData) {
   return `/* Built: ${new Date().toISOString()} */
 
 (function (factory, window) {
@@ -70,7 +70,9 @@ export function getPluginTemplate (pluginFunction) {
   }
 }(function (L) {
 
-(${pluginFunction})(L);
+const externalData = ${JSON.stringify(externalData)};
+
+(${pluginFunction})(L, externalData);
 
 }, window));
 `;

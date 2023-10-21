@@ -10,17 +10,13 @@
   "homepage": "https://nfreear.github.io/leaflet.a11y/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nfreear/Leaflet.translate.git"
+    "url": "git+https://github.com/nfreear/leaflet.a11y.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nfreear/leaflet.a11y/issues"
   },
   "peerDependencies": {
     "leaflet": "^1.0.0"
-  },
-  "scripts": {
-    "prepublishOnly": "npm run build && npm test",
-    "build": "node src/build.mjs",
-    "start": "npm run build && npx servor",
-    "fix": "semistandard --fix",
-    "test": "semistandard"
   },
   "keywords": [
     "leaflet",
@@ -38,5 +34,8 @@
     "leaflet.a11y": "^0.3.0",
     "semistandard": "^17.0.0",
     "servor": "^4.0.2"
+  },
+  "directories": {
+    "example": "example"
   }
 }

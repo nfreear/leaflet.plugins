@@ -9,12 +9,16 @@ import * as fs from 'node:fs/promises';
 import { getPluginTemplate, getPackages } from './buildUtils.mjs';
 // import info from '../package.json' with { type: 'json' };
 
+import TRANSLATIONS from 'Leaflet.translate/locale/index.mjs';
+
 try {
   const PR = getPackages().map(async (PKG, idx) => {
     // .
+    const externalData = PKG.isTranslate ? TRANSLATIONS : {};
+
     const { default: pluginFunction } = await import(PKG.modulePath);
 
-    const CODE = getPluginTemplate(pluginFunction.toString());
+    const CODE = getPluginTemplate(pluginFunction.toString(), externalData);
 
     await fs.writeFile(PKG.mainPath, CODE, 'utf8');
 

@@ -2,9 +2,9 @@
  * Import a locale, register and set on Leaflet.
  */
 
-import LOCALES from '../locale/index.mjs';
+// Was: import LOCALES from '../locale/index.mjs';
 
-export default function createLocale (L, location, addToL = true) {
+export default function createLocale (L, translations, addToL = true) {
   // Handle dynamic imports better.
   function delayedAssert () {
     console.assert(L && L.registerLocale && L.setLocale, "'L.i18n' plugin needed");
@@ -67,7 +67,7 @@ export default function createLocale (L, location, addToL = true) {
   }
 
   // Singleton instance.
-  const INST = new Locale(L, location, LOCALES);
+  const INST = new Locale(L, window.location, translations); // Was: LOCALES;
 
   if (addToL) {
     L.translate = INST;
