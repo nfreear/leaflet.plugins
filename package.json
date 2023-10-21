@@ -16,6 +16,7 @@
   },
   "scripts": {
     "prepublishOnly": "npm run build && npm test && npm run version",
+    "dry": "npm publish --workspaces --dry-run",
     "build": "npm run build:plugin && npm run copy",
     "build:plugin": "node scripts/build.mjs",
     "copy": "node scripts/copy.mjs",

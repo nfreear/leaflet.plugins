@@ -1,6 +1,7 @@
 .github/*
 *BAK*
 *test*
+!en-TEST.mjs
 Leaflet.locale.js
 src/build.mjs
 

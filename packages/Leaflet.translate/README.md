@@ -52,6 +52,8 @@ npm test
 npm start
 ```
 
+([Legacy repo][].)
+
 [Feedback][], translations, contributions and pull requests are welcome!
 
 ---
@@ -72,3 +74,4 @@ License: [MIT][].
 [Leaflet.a11y]: https://github.com/nfreear/leaflet.a11y
   "An accessibility plugin for Leaflet"
 [MIT]: https://github.com/nfreear/leaflet.a11y/blob/main/LICENSE
+[legacy repo]: https://github.com/nfreear/Leaflet.translate

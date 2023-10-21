@@ -32,7 +32,7 @@ Include or `import` core Leaflet, the plugin and plugin stylesheet:
 <script src="path/to/L.keyboard-help.js"></script>
 ```
 
-Then, simply set the `keyboardHelp` option when creating a map:
+Then, set the `keyboardHelp` option when creating a map:
 
 ```js
 var map = L.map('map', {

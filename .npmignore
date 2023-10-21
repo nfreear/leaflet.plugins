@@ -5,3 +5,4 @@ packages
 web-components
 *BAK*
 *test*
+!en-TEST.mjs
