@@ -1,6 +1,7 @@
 .DS_Store
 L.keyboard-help.js
 Leaflet.a11y.js
+Leaflet.translate.js
 example/lib/*.mjs
 example/lib/layer/
 example/lib/leaflet.esm.shim.js

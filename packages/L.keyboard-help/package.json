@@ -4,6 +4,7 @@
   "description": "A control to display help for keyboard shortcuts, in a Leaflet map.",
   "main": "./L.keyboard-help.js",
   "module": "./src/KeyboardHelp.mjs",
+  "style": "./L.keyboard-help.css",
   "license": "MIT",
   "author": "Nick Freear",
   "homepage": "https://nfreear.github.io/leaflet.a11y/",

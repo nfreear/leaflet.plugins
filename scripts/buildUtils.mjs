@@ -9,7 +9,8 @@ import { createRequire } from 'node:module';
 
 export const PACKAGES = [
   'L.keyboard-help',
-  'Leaflet.a11y'
+  'Leaflet.a11y',
+  'Leaflet.translate'
 ];
 
 export const PACKAGES_DIR = path.resolve(
@@ -17,24 +18,36 @@ export const PACKAGES_DIR = path.resolve(
   '../packages'
 );
 
-const require = createRequire(import.meta.url);
+export const require = createRequire(import.meta.url);
 
 export function getPackages () {
   return PACKAGES.map((dir) => {
     const pkgPath = packagePath(dir, 'package.json');
 
-    const { name, main, module, version } = require(pkgPath);
+    const isTranslate = dir === 'Leaflet.translate';
+
+    const { name, main, module, style, version } = require(pkgPath);
     // const PKG = JSON.parse(await readFile(pkgPath));
 
     const modulePath = packagePath(dir, module);
     const mainPath = packagePath(dir, main);
+    const stylePath = style ? packagePath(dir, style) : null;
 
-    return { name, version, dir, main, module, modulePath, mainPath };
+    return { name, version, dir, isTranslate, main, module, modulePath, mainPath, style, stylePath };
   });
+}
+
+export function readPkg (pkgName) {
+  const pkgPath = packagePath(pkgName, 'package.json');
+  return require(pkgPath);
 }
 
 export function packagePath (pkgName, fileName) {
   return path.resolve(PACKAGES_DIR, pkgName, fileName);
+}
+
+export function projectPath (dir) {
+  return path.resolve(PACKAGES_DIR, '..', dir);
 }
 
 export function getPluginTemplate (pluginFunction) {

@@ -15,26 +15,16 @@
     "leaflet": "^1.0.0"
   },
   "scripts": {
+    "prepublishOnly": "npm run build && npm test && npm run version",
     "build": "npm run build:plugin && npm run copy",
     "build:plugin": "node scripts/build.mjs",
-    "copy": "cp Leaflet.a11y.js example/lib && cp src/* example/lib && npm run copy:x",
-    "copy:x": "cp packages/*/*.css packages/*/*/*.mjs example/lib",
+    "copy": "node scripts/copy.mjs",
+    "version": "node scripts/version.mjs",
     "start": "npm run build && npx servor example",
     "start:debug": "npx servor",
     "fix": "semistandard --fix",
     "test": "semistandard"
   },
-  "keywords": [
-    "leaflet",
-    "map",
-    "i18n",
-    "internationalization",
-    "internationalisation",
-    "localization",
-    "translation",
-    "a11y",
-    "accessibility"
-  ],
   "devDependencies": {
     "semistandard": "^17.0.0",
     "servor": "^4.0.2"
