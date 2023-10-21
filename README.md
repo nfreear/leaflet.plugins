@@ -1,10 +1,15 @@
 [![Node.js CI][ci-img]][ci]
-[![NPM][npm-img]][npm]
 [![Leaflet 1.9.4][leaflet-img]][leaflet]
 
-# Leaflet.a11y
+# Leaflet Plugins
 
-An accessibility and localization/translation plugin for [Leaflet][].
+A collection of accessibility and localisation/ translation plugins for [Leaflet][].
+
+| Plugin               | Description                               | NPM     |
+|----------------------|-------------------------------------------|---------|
+|[Leaflet.a11y][]      | An accessibility and localization plugin  | [![NPM][npm-a-img]][npm-a] |
+|[Leaflet.translate][] | Translations/ language packs for Leaflet core and plugins| [![NPM][npm-t-img]][npm-t] |
+|[L.keyboard-help][]   | A control to display help for keyboard shortcuts  | [![NPM][npm-k-img]][npm-k] |
 
 * See: [Changelog][]
 * See: [Roadmap][]
@@ -76,8 +81,6 @@ License: [MIT][].
 [changelog]: https://github.com/nfreear/leaflet.a11y/blob/main/CHANGELOG.md
 [ci]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml
 [ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
-[npm]: https://www.npmjs.com/package/leaflet.a11y
-[npm-img]: https://img.shields.io/npm/v/leaflet.a11y
 [leaflet-img]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
 [demo]: https://nfreear.github.io/leaflet.a11y/
 [Leaflet]: https://leafletjs.com/
@@ -102,3 +105,14 @@ License: [MIT][].
   "Add the 'Leaflet.a11y' to plugin list"
 [Maps WCAG eval]: https://github.com/Malvoz/web-maps-wcag-evaluation
   "Web map tools WCAG 2.1 evaluation - A manual accessibility evaluation of popular web map tools."
+
+[Leaflet.a11y]: https://github.com/nfreear/leaflet.a11y/tree/main/packages/leaflet.a11y
+[Leaflet.translate]: https://github.com/nfreear/leaflet.a11y/tree/main/packages/Leaflet.translate
+[L.keyboard-help]: https://github.com/nfreear/leaflet.a11y/tree/main/packages/L.keyboard-help
+
+[npm-a]: https://www.npmjs.com/package/leaflet.a11y
+[npm-a-img]: https://img.shields.io/npm/v/leaflet.a11y
+[npm-t]: https://www.npmjs.com/package/leaflet.translate
+[npm-t-img]: https://img.shields.io/npm/v/leaflet.translate
+[npm-k]: https://www.npmjs.com/package/l.keyboard-help
+[npm-k-img]: https://img.shields.io/npm/v/l.keyboard-help
