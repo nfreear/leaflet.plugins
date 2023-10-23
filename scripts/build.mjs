@@ -9,12 +9,10 @@ import * as fs from 'node:fs/promises';
 import { getPluginTemplate, getPackages } from './buildUtils.mjs';
 // import info from '../package.json' with { type: 'json' };
 
-import TRANSLATIONS from 'Leaflet.translate/locale/index.mjs';
-
 try {
   const PR = getPackages().map(async (PKG, idx) => {
     // .
-    const externalData = PKG.isTranslate ? TRANSLATIONS : {};
+    const externalData = await getPreBuildData(PKG.preBuildPath);
 
     const { default: pluginFunction } = await import(PKG.modulePath);
 
@@ -29,4 +27,12 @@ try {
 } catch (err) {
   console.error('❌ Build Error:', err);
   process.exit(1);
+}
+
+async function getPreBuildData (importPath) {
+  if (importPath) {
+    const { default: customPreBuildStep } = await import(importPath);
+    return await customPreBuildStep();
+  }
+  return {};
 }

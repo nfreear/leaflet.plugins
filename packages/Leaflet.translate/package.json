@@ -5,6 +5,7 @@
   "description": "Translations/ language packs for Leaflet core and plugins.",
   "main": "./Leaflet.translate.js",
   "module": "./src/Locale.mjs",
+  "myPreBuild": "./src/build.mjs",
   "license": "MIT",
   "author": "Nick Freear",
   "homepage": "https://nfreear.github.io/leaflet.a11y/",

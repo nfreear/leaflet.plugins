@@ -24,16 +24,15 @@ export function getPackages () {
   return PACKAGES.map((dir) => {
     const pkgPath = packagePath(dir, 'package.json');
 
-    const isTranslate = dir === 'Leaflet.translate';
-
-    const { name, main, module, style, version } = require(pkgPath);
+    const { name, main, module, myPreBuild, style, version } = require(pkgPath);
     // const PKG = JSON.parse(await readFile(pkgPath));
 
     const modulePath = packagePath(dir, module);
     const mainPath = packagePath(dir, main);
     const stylePath = style ? packagePath(dir, style) : null;
+    const preBuildPath = myPreBuild ? packagePath(dir, myPreBuild) : null;
 
-    return { name, version, dir, isTranslate, main, module, modulePath, mainPath, style, stylePath };
+    return { name, version, dir, main, module, modulePath, mainPath, style, stylePath, myPreBuild, preBuildPath };
   });
 }
 
@@ -76,4 +75,4 @@ const externalData = ${JSON.stringify(externalData)};
 
 }, window));
 `;
-}
+} // End Function.
