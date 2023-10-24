@@ -31,16 +31,16 @@ As laid out it [#14][], work with other contributors to get accessibility fixes,
 
 I welcome [feedback][issues], contributions, and pull requests!
 
-[issues]: https://github.com/nfreear/leaflet.a11y/issues
-[#1]: https://github.com/nfreear/leaflet.a11y/issues/1
+[issues]: https://github.com/nfreear/leaflet.plugins/issues
+[#1]: https://github.com/nfreear/leaflet.plugins/issues/1
   "Documentation, CI, Unit tests, Linting"
-[#14]: https://github.com/nfreear/leaflet.a11y/issues/14 "I want to retire!"
-[#21]: https://github.com/nfreear/leaflet.a11y/issues/21 "Mono-repo ..."
+[#14]: https://github.com/nfreear/leaflet.plugins/issues/14 "I want to retire!"
+[#21]: https://github.com/nfreear/leaflet.plugins/issues/21 "Mono-repo ..."
 [L-9092]: https://github.com/Leaflet/Leaflet/issues/9092
 [monorepo]: https://monorepo.tools/ "Monorepo explained"
 [Leaflet.a11y]: https://github.com/nfreear/leaflet.a11y
 [Leaflet.translate]: https://github.com/nfreear/Leaflet.translate
-[L.keyboard-help]: https://github.com/nfreear/leaflet.a11y/tree/main/packages/L.keyboard-help
+[L.keyboard-help]: https://github.com/nfreear/leaflet.plugins/tree/main/packages/L.keyboard-help
 [L.Karma]: https://github.com/Leaflet/Leaflet/blob/main/spec/karma.conf.js
   "Leaflet/Leaflet - spec/karma.conf.js (GitHub)"
 [Karma]: https://karma-runner.github.io/6.4/index.html

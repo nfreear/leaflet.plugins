@@ -13,7 +13,7 @@ A collection of accessibility and localisation/ translation plugins for [Leaflet
 
 * See: [Changelog][]
 * See: [Roadmap][]
-* Demo: [nfreear.github.io/leaflet.a11y][demo]
+* Demo: [nfreear.github.io/leaflet.plugins][demo]
 
 ## Aim
 
@@ -77,20 +77,20 @@ Feedback, contributions and pull requests are welcomed!
 ---
 License: [MIT][].
 
-[roadmap]: https://github.com/nfreear/leaflet.a11y/blob/main/ROADMAP.md
-[changelog]: https://github.com/nfreear/leaflet.a11y/blob/main/CHANGELOG.md
-[ci]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml
-[ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
+[roadmap]: https://github.com/nfreear/leaflet.plugins/blob/main/ROADMAP.md
+[changelog]: https://github.com/nfreear/leaflet.plugins/blob/main/CHANGELOG.md
+[ci]: https://github.com/nfreear/leaflet.plugins/actions/workflows/node.js.yml
+[ci-img]: https://github.com/nfreear/leaflet.plugins/actions/workflows/node.js.yml/badge.svg
 [leaflet-img]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
-[demo]: https://nfreear.github.io/leaflet.a11y/
+[demo]: https://nfreear.github.io/leaflet.plugins/
 [Leaflet]: https://leafletjs.com/
 [accessibility]: https://leafletjs.com/examples/accessibility/
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
 [MIT x]: https://nfreear.mit-license.org/
-[MIT]: https://github.com/nfreear/leaflet.a11y/blob/main/LICENSE
-[#10]: https://github.com/nfreear/leaflet.a11y/issues/10
+[MIT]: https://github.com/nfreear/leaflet.plugins/blob/main/LICENSE
+[#10]: https://github.com/nfreear/leaflet.plugins/issues/10
   "What is “a11y”? #10"
-[#14]: https://github.com/nfreear/leaflet.a11y/issues/14
+[#14]: https://github.com/nfreear/leaflet.plugins/issues/14
   "“I want to retire” #14"
 [bugs]: https://github.com/Leaflet/Leaflet/labels/accessibility
 [L-7193]: https://github.com/Leaflet/Leaflet/issues/7193

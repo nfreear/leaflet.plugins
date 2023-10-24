@@ -1,15 +1,15 @@
 {
   "private": true,
   "name": "leaflet-plugins-root",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "An accessibility and localization plugin for Leaflet.",
   "bin": "scripts/build.mjs",
   "license": "MIT",
   "author": "Nick Freear",
-  "homepage": "https://nfreear.github.io/leaflet.a11y/",
+  "homepage": "https://nfreear.github.io/leaflet.plugins/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nfreear/leaflet.a11y.git"
+    "url": "https://github.com/nfreear/leaflet.plugins.git"
   },
   "peerDependencies": {
     "leaflet": "^1.0.0"

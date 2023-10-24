@@ -8,7 +8,7 @@ A control to display help for keyboard shortcuts in a popup, on a [Leaflet][] ma
 
 * See: [Changelog][]
 * Related issue: [L-9131][]
-* Demo: [nfreear.github.io/leaflet.a11y][demo]
+* Demo: [nfreear.github.io/leaflet.plugins][demo]
 
 ![Screenshot 1: the "Keyboard shortcuts" button][img:kb-help-1]
 
@@ -50,19 +50,19 @@ License: [MIT][].
 
 [img:kb-help-1]: /example/images/keyboard-help_1-button.jpg
 [img:kb-help-2]: /example/images/keyboard-help_2-dialog.jpg
-[roadmap]: https://github.com/nfreear/leaflet.a11y/blob/main/ROADMAP.md
-[changelog]: https://github.com/nfreear/leaflet.a11y/blob/main/CHANGELOG.md
-[ci]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml
-[ci-img]: https://github.com/nfreear/leaflet.a11y/actions/workflows/node.js.yml/badge.svg
+[roadmap]: https://github.com/nfreear/leaflet.plugins/blob/main/ROADMAP.md
+[changelog]: https://github.com/nfreear/leaflet.plugins/blob/main/CHANGELOG.md
+[ci]: https://github.com/nfreear/leaflet.plugins/actions/workflows/node.js.yml
+[ci-img]: https://github.com/nfreear/leaflet.plugins/actions/workflows/node.js.yml/badge.svg
 [npm]: https://www.npmjs.com/package/l.keyboard-help
 [npm-img]: https://img.shields.io/npm/v/l.keyboard-help
 [leaflet-img]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
-[demo]: https://nfreear.github.io/leaflet.a11y/
+[demo]: https://nfreear.github.io/leaflet.plugins/
 [Leaflet]: https://leafletjs.com/
 [L-9131]: https://github.com/Leaflet/Leaflet/issues/9131
   "Help should be provided for the map container keyboard shortcuts [a11y]"
 [accessibility]: https://leafletjs.com/examples/accessibility/
-[MIT]: https://github.com/nfreear/leaflet.a11y/blob/main/LICENSE
-[feedback]: https://github.com/nfreear/leaflet.a11y/issues
+[MIT]: https://github.com/nfreear/leaflet.plugins/blob/main/LICENSE
+[feedback]: https://github.com/nfreear/leaflet.plugins/issues
 [focus order]: https://www.w3.org/TR/WCAG22/#focus-order
   "WCAG 2.2 - Success Criterion 2.4.3 Focus Order"

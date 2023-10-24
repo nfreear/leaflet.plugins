@@ -38,12 +38,12 @@
 
 ---
 
-[readme]: https://github.com/nfreear/leaflet.a11y#readme
-[roadmap]: https://github.com/nfreear/leaflet.a11y/blob/main/ROADMAP.md
-[demo]: https://nfreear.github.io/leaflet.a11y
+[readme]: https://github.com/nfreear/leaflet.plugins#readme
+[roadmap]: https://github.com/nfreear/leaflet.plugins/blob/main/ROADMAP.md
+[demo]: https://nfreear.github.io/leaflet.plugins
   "Example site using ‘Leaflet.a11y’ plugin"
 [i18n plugin]: https://github.com/umap-project/Leaflet.i18n
-[Leaflet.translate]: https://github.com/nfreear/Leaflet.translate
+[Leaflet.translate]: https://github.com/nfreear/Leaflet.translate "Legacy!"
 [wcag eval]: https://github.com/Malvoz/web-maps-wcag-evaluation
   "Web map tools WCAG 2.1 evaluation, by @Malvoz (13-Sep-2021)"
 
@@ -70,7 +70,7 @@
 [i18n-6]: https://github.com/umap-project/Leaflet.i18n/issues/6
   "Proposal: Add placeholder function for translation/localization/i18n to core Leaflet"
 
-[#1]: https://github.com/nfreear/leaflet.a11y/issues/1
+[#1]: https://github.com/nfreear/leaflet.plugins/issues/1
   "Documentation, CI, Unit tests, linting (4 tasks) [doc]"
 [#2]: https://github.com/nfreear/leaflet.a11y/issues/2
   "Map container needs an accessible name and role [a11y]"
@@ -78,11 +78,11 @@
   "Focus should be managed between markers and popups [a11y]"
 [#4]: https://github.com/nfreear/leaflet.a11y/issues/4
   "Non-interactive markers should not have an interactive role [a11y]"
-[#5]: https://github.com/nfreear/leaflet.a11y/issues/5
+[#5]: https://github.com/nfreear/leaflet.plugins/issues/5
   "Deploy example to GitHub Pages and publish plugin (3 tasks) [doc]"
-[#6]: https://github.com/nfreear/leaflet.a11y/issues/6
+[#6]: https://github.com/nfreear/leaflet.plugins/issues/6
   "Be more explicit about optional use of ‘Leaflet.i18n’ plugin [doc]"
-[#7]: https://github.com/nfreear/leaflet.a11y/issues/7
+[#7]: https://github.com/nfreear/leaflet.plugins/issues/7
   "Fix null lang and empty string role bugs, etc. (4 tasks) [bug]"
 [#8]: https://github.com/nfreear/leaflet.a11y/issues/8
   "Use 'addInitHook'; Convert plugin to an ES module, with build step #8 (4 tasks)"
@@ -96,11 +96,11 @@
   "Put locale import code in a separate class #12"
 [#14]: https://github.com/nfreear/leaflet.a11y/issues/14
   "“I want to retire” #14 [doc]"
-[#18]: https://github.com/nfreear/leaflet.a11y/issues/18
+[#18]: https://github.com/nfreear/leaflet.plugins/issues/18
   "Separate locale data and functionality into separate plugin"
-[#20]: https://github.com/nfreear/leaflet.a11y/issues/20
+[#20]: https://github.com/nfreear/leaflet.plugins/issues/20
   "Fix and document browser compatibility - Firefox etc."
-[#21]: https://github.com/nfreear/leaflet.a11y/issues/21 "Mono-repo ..."
+[#21]: https://github.com/nfreear/leaflet.plugins/issues/21 "Mono-repo ..."
 [addInitHook]: https://leafletjs.com/reference.html#class-constructor-hooks
   "Leaflet API – Class – Constructor hooks"
 

@@ -10,7 +10,7 @@ The plugin contains both translations/ language pack files, and the code to load
 
 It uses the [Leaflet.i18n][] internationalisation plugin.
 
-* Demo: [nfreear.github.io/leaflet.a11y][demo]
+* Demo: [nfreear.github.io/leaflet.plugins][demo]
 * See: [Leaflet/Leaflet/issues/9092][L-9092]
 
 Also, fix accessibility issues with [Leaflet.a11y][].
@@ -59,19 +59,19 @@ npm start
 ---
 License: [MIT][].
 
-[ci]: https://github.com/nfreear/Leaflet.translate/actions/workflows/node.js.yml
-[ci-img]: https://github.com/nfreear/Leaflet.translate/actions/workflows/node.js.yml/badge.svg
+[ci]: https://github.com/nfreear/leaflet.plugins/actions/workflows/node.js.yml
+[ci-img]: https://github.com/nfreear/leaflet.plugins/actions/workflows/node.js.yml/badge.svg
 [npm]: https://www.npmjs.com/package/leaflet.translate
 [npm-img]: https://img.shields.io/npm/v/leaflet.translate
 [leaflet-img]: https://img.shields.io/badge/leaflet-1.9.4-green.svg?style=flat
-[feedback]: https://github.com/nfreear/Leaflet.translate/issues
-[demo]: https://nfreear.github.io/leaflet.a11y/
+[feedback]: https://github.com/nfreear/leaflet.plugins/issues
+[demo]: https://nfreear.github.io/leaflet.plugins/
 [Leaflet]: https://leafletjs.com/
 [Leaflet plugins]: https://leafletjs.com/plugins.html
 [L-9092]: https://github.com/Leaflet/Leaflet/issues/9092
   "Add placeholder function for translation/localization/i18n to Leaflet #9092"
 [Leaflet.i18n]: https://github.com/umap-project/Leaflet.i18n
-[Leaflet.a11y]: https://github.com/nfreear/leaflet.a11y
+[Leaflet.a11y]: https://github.com/nfreear/leaflet.plugins
   "An accessibility plugin for Leaflet"
-[MIT]: https://github.com/nfreear/leaflet.a11y/blob/main/LICENSE
+[MIT]: https://github.com/nfreear/leaflet.plugins/blob/main/LICENSE
 [legacy repo]: https://github.com/nfreear/Leaflet.translate
