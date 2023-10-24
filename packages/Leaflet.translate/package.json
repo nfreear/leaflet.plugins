@@ -30,12 +30,6 @@
     "translation",
     "translate"
   ],
-  "devDependencies": {
-    "leaflet-i18n": "^0.3.3",
-    "leaflet.a11y": "^0.3.0",
-    "semistandard": "^17.0.0",
-    "servor": "^4.0.2"
-  },
   "directories": {
     "example": "example"
   }
