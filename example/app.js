@@ -5,7 +5,8 @@
  * @file Javascript module (ES6)
  */
 
-import L from 'leaflet.esm.shim';
+import 'leaflet';
+// Was: import L from 'leaflet.esm.shim';
 import 'Leaflet.i18n';
 import 'Leaflet.a11y';
 // import accessibilityPlugin from 'Leaflet.a11y.esm';
@@ -14,8 +15,7 @@ import 'Leaflet.translate';
 
 console.debug('App start:', window.L);
 
-// keyboardHelpPlugin(L);
-// accessibilityPlugin(L);
+const { L } = window;
 
 await L.translate.fromUrl.load();
 
