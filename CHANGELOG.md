@@ -1,15 +1,16 @@
 
 # Release Notes
 
-## Version 0.4.0
+## Leaflet Plugins Version 0.6.0
 
-* Release: TODO,
-* Move translations into [Leaflet.translate][] ([#18][])
-* Fix: Firefox compatibility ([#20][])
-* Start on mono-repo ([#21][])
+* Release: 24-Oct-2023,
+* First full mono-repo release - 3 plugins! ([#21][])
+* Renamed repo to `leaflet.plugins` ([#22][])
+* Fix browser compatibility (Firefox) - `Leaflet.a11y` ([#20][])
+* Separate locale data and functionality into `Leaflet.translate` ([#18][])
 * Document [roadmap][] (todos!)
 
-## Version 0.3.0
+## Leaflet.a11y Version 0.3.0
 
 * Release: 26-Sep-2023,
 * Do things the Leaflet way – adopt [`L.Map.addInitHook`][addInitHook] ([#8][])

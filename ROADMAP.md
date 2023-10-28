@@ -3,7 +3,7 @@
 
 Note, as I work on this in my spare time and have family commitments, I'm hesitant to call this a “Roadmap“!
 
-## Monorepo
+## 1. Monorepo
 
 See [#21]. I'm working to put these plugins into a [monorepo][]:
 
@@ -13,7 +13,7 @@ See [#21]. I'm working to put these plugins into a [monorepo][]:
 
 This will provide the benefits of shared build, unit-testing and CI, and ensure none of them gets “left behind!“
 
-## Unit-tests, CI
+## 2. Unit-tests, CI
 
 As listed in [#1][], configure and write unit tests, using [Karma][], and modelled after [Leaflet][L.karma]. To include:
 
@@ -23,7 +23,7 @@ As listed in [#1][], configure and write unit tests, using [Karma][], and modell
 
 Give developers looking to use the plugins confidence!
 
-## Core Leaflet
+## 3. Core Leaflet
 
 As laid out it [#14][], work with other contributors to get accessibility fixes, and some form of [internationalization/ localisation][L-9092] into core Leaflet.
 
