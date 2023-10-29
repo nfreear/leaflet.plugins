@@ -1,0 +1,31 @@
+{
+  "private": true,
+  "name": "l.a11y-layer",
+  "version": "0.6.0",
+  "description": "A collection of accessible markers and icons for Leaflet.",
+  "main": "./src/A11yLayerPlugin.mjs",
+  "module": "./src/A11yLayerPlugin.mjs",
+  "license": "MIT",
+  "author": "Nick Freear",
+  "homepage": "https://nfreear.github.io/leaflet.plugins/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nfreear/leaflet.plugins.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nfreear/leaflet.plugins/issues"
+  },
+  "peerDependencies": {
+    "leaflet": "^1.0.0"
+  },
+  "keywords": [
+    "leaflet",
+    "plugin",
+    "map",
+    "layer",
+    "marker",
+    "pin",
+    "a11y",
+    "accessibility"
+  ]
+}
